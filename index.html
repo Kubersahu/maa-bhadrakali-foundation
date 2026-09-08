@@ -1,144 +1,1385 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>देवी माँ</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --background: #292d30;
-      --bar: #202427;
-      --muted: #aeb3b5;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Maa Bhadrakali Foundation</title>
 
-    * { box-sizing: border-box; }
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+:root{
+ --black:#050505;--black2:#0d0708;--maroon:#26080d;
+ --red:#a51624;--red2:#e32635;
+ --gold:#d6a72c;--gold2:#ffd966;
+ --white:#fff8ee;--muted:#b9a9a0
+}
+body{
+ font-family:Arial,Helvetica,sans-serif;
+ background:radial-gradient(circle at 50% 0%,#3b0b12,#100507 35%,#050505 70%);
+ color:var(--white);overflow-x:hidden
+}
+body:before{
+ content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+ background-image:
+ radial-gradient(circle,#ffd45c 1px,transparent 1.5px),
+ radial-gradient(circle,#e32635 1px,transparent 1.5px);
+ background-size:95px 95px,140px 140px;
+ opacity:.15;animation:particles 18s linear infinite
+}
+@keyframes particles{to{transform:translateY(-180px)}}
 
-    html, body {
-      margin: 0;
-      min-height: 100%;
-      background: var(--background);
-      font-family: Arial, Helvetica, sans-serif;
-    }
+header{
+ position:fixed;top:0;left:0;width:100%;z-index:100;
+ background:#030303d9;backdrop-filter:blur(14px);
+ border-bottom:1px solid #d6a72c30
+}
+.nav{
+ max-width:1200px;height:72px;margin:auto;padding:0 22px;
+ display:flex;align-items:center;justify-content:space-between
+}
+.logo{
+ display:flex;align-items:center;gap:10px;font-weight:bold;
+ color:var(--gold2);letter-spacing:1px
+}
+.logo-icon{
+ width:43px;height:43px;border-radius:50%;display:grid;
+ place-items:center;font-size:25px;
+ background:linear-gradient(145deg,#32080d,#080808);
+ border:1px solid var(--gold);
+ box-shadow:0 0 18px #d6a72c40
+}
+nav{display:flex;gap:18px}
+nav a{color:#eee;text-decoration:none;font-size:13px}
+nav a:hover{color:var(--gold2)}
 
-    body {
-      display: flex;
-      justify-content: center;
-    }
+.top-login{
+ position:fixed;top:84px;right:20px;z-index:500;
+ padding:12px 20px;border:1px solid #fff0a8;border-radius:12px;
+ background:linear-gradient(135deg,#ffd966,#e0aa20);
+ color:#160b00;font-weight:900;cursor:pointer;
+ box-shadow:0 8px 25px #0008,0 0 20px #d6a72c55
+}
 
-    .viewer {
-      width: min(100%, 720px);
-      min-height: 100vh;
-      background: var(--background);
-      box-shadow: 0 0 30px rgba(0, 0, 0, .2);
-    }
+.hero{
+ min-height:100vh;padding:130px 22px 70px;
+ display:flex;align-items:center;position:relative;overflow:hidden
+}
+.hero:before{
+ content:"";position:absolute;width:600px;height:600px;
+ border-radius:50%;background:#aa0f2330;filter:blur(30px);
+ top:-180px;left:-180px
+}
+.hero-inner{
+ max-width:1200px;width:100%;margin:auto;
+ display:grid;grid-template-columns:1.05fr .95fr;
+ align-items:center;gap:50px;position:relative;z-index:2
+}
+.badge{
+ display:inline-block;padding:9px 17px;border:1px solid #ffcd4b59;
+ border-radius:30px;background:#820a1925;color:var(--gold2);
+ font-size:13px;margin-bottom:20px
+}
+.hero h1{font-size:clamp(42px,7vw,78px);line-height:1.02;margin-bottom:20px}
+.hero h1 span{color:var(--gold2);text-shadow:0 0 25px #ffbe323f}
+.hero p{max-width:650px;color:#c9bbb5;line-height:1.8;font-size:17px}
+.buttons{margin-top:30px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+ text-decoration:none;padding:14px 23px;border-radius:10px;
+ font-weight:bold;display:inline-block;transition:.3s;cursor:pointer
+}
+.btn:hover{transform:translateY(-3px)}
+.primary{
+ color:#160b00;background:linear-gradient(135deg,#ffd966,#c8921c);
+ box-shadow:0 0 25px #d6a72c38
+}
+.secondary{color:#fff;border:1px solid #ffffff26;background:#ffffff0a}
 
-    .topbar {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 0 24px;
-      background: var(--bar);
-      color: #f2f2f2;
-    }
+.deity-box{position:relative;display:flex;justify-content:center}
+.deity-glow{
+ position:absolute;width:430px;height:430px;border-radius:50%;
+ background:radial-gradient(circle,#ffbe4038,#960a251f 40%,transparent 70%);
+ filter:blur(15px)
+}
+.deity{
+ width:min(440px,85vw);aspect-ratio:1;object-fit:cover;
+ position:relative;border-radius:50%;border:2px solid #ffd7648c;
+ box-shadow:0 0 30px #da273255,0 0 80px #d6a72c29;
+ animation:float 5s ease-in-out infinite
+}
+@keyframes float{50%{transform:translateY(-9px)}}
 
-    .menu, .more {
-      font-size: 32px;
-      line-height: 1;
-      color: #f2f2f2;
-    }
+section{position:relative;z-index:2;padding:90px 22px}
+.container{max-width:1200px;margin:auto}
+.title{text-align:center;margin-bottom:45px}
+.title small{color:var(--gold2);letter-spacing:3px}
+.title h2{font-size:clamp(32px,5vw,52px);margin-top:12px}
+.title p{max-width:700px;margin:15px auto;color:var(--muted);line-height:1.7}
 
-    .menu { letter-spacing: -5px; width: 38px; overflow: hidden; }
-    .more { margin-left: auto; font-size: 34px; }
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+ background:linear-gradient(145deg,#55081252,#0a0a0ab8);
+ border:1px solid #d6a72c26;border-radius:22px;padding:30px;
+ box-shadow:0 20px 50px #0000004d
+}
+.card h3{color:var(--gold2);margin-bottom:14px;font-size:22px}
+.card p{color:#c4b7b1;line-height:1.8}
 
-    .filename {
-      overflow: hidden;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      font-size: clamp(20px, 4vw, 30px);
-      font-weight: 600;
-    }
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.stat{
+ text-align:center;padding:30px 15px;border-radius:18px;
+ background:#ffffff06;border:1px solid #ffffff12
+}
+.stat strong{display:block;font-size:38px;color:var(--gold2);margin-bottom:8px}
+.stat span{color:#bbaea8}
 
-    .tabs {
-      height: 58px;
-      display: flex;
-      align-items: stretch;
-      background: #25292c;
-      border-bottom: 1px solid #353a3d;
-    }
+.cause{
+ padding:30px;border-radius:20px;
+ background:linear-gradient(145deg,#21070c,#090909);
+ border:1px solid #be1e3238;transition:.3s
+}
+.cause:hover{transform:translateY(-7px);border-color:#ffd25066}
+.icon{font-size:38px;margin-bottom:16px}
+.cause h3{margin-bottom:12px;color:#ffe59a}
+.cause p{color:#b7aaa4;line-height:1.7}
 
-    .tab {
-      min-width: 50%;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      padding: 0 18px;
-      border-right: 1px solid #34383b;
-      color: #f2f2f2;
-      font-size: 19px;
-      white-space: nowrap;
-      overflow: hidden;
-    }
+.story{border-left:2px solid var(--gold)}
+.quote{font-size:18px;line-height:1.8;color:#f1e4dc}
+.author{color:var(--gold);margin-top:15px}
 
-    .tab.active { border-top: 3px solid #3979e8; }
-    .tab-icon { color: #61d7ba; font-size: 22px; }
-    .close { margin-left: auto; font-size: 25px; color: #f7f7f7; }
+.gallery{
+ display:grid;grid-template-columns:repeat(3,1fr);gap:16px
+}
+.gallery-item{
+ height:280px;border-radius:18px;border:1px solid #d6a72c2e;
+ overflow:hidden;position:relative;background:#16070a
+}
+.gallery-item img,.gallery-item video{
+ width:100%;height:100%;object-fit:cover
+}
+.caption{
+ position:absolute;bottom:0;left:0;right:0;
+ padding:12px;background:#000b;color:#fff
+}
 
-    .canvas {
-      min-height: calc(100vh - 130px);
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: clamp(80px, 14vh, 190px) 6px 170px;
-    }
+.donate{
+ max-width:900px;margin:auto;text-align:center;padding:55px 30px;
+ border-radius:28px;
+ background:radial-gradient(circle at 50% 0%,#aa142340,transparent 55%),#26080e;
+ border:1px solid #ffd25040
+}
+.donate h2{font-size:42px;margin-bottom:15px}
+.donate p{color:#c2b4ad;max-width:650px;margin:auto auto 25px;line-height:1.7}
+.upi{
+ display:inline-block;padding:13px 20px;border-radius:10px;
+ background:#ffffff0d;border:1px solid #ffffff1a;
+ color:var(--gold2);margin-bottom:25px
+}
 
-    .main-image {
-      display: block;
-      width: 100%;
-      max-width: 690px;
-      height: auto;
-      object-fit: contain;
-      box-shadow: 0 8px 22px rgba(0, 0, 0, .22);
-    }
+.contact{
+ display:grid;grid-template-columns:1fr 1fr;gap:22px
+}
+.contact-item{
+ padding:22px;margin-bottom:15px;border-radius:15px;
+ background:#ffffff06;border:1px solid #ffffff12
+}
+.contact-item b{color:var(--gold2);display:block;margin-bottom:6px}
+.contact-item span{color:#c1b4ae}
 
-    .bottom-bar {
-      height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--bar);
-      border-top: 1px solid #353a3d;
-      color: #777d80;
-      font-size: 30px;
-    }
+.contact-form input,.contact-form textarea{
+ width:100%;padding:14px;margin:7px 0;
+ background:#0d0809;border:1px solid #ffffff20;
+ color:white;border-radius:10px;outline:none
+}
+.contact-form textarea{height:120px;resize:vertical}
+.contact-form button{
+ border:0;padding:13px 20px;border-radius:10px;
+ background:linear-gradient(135deg,#ffd966,#c8921c);
+ font-weight:bold;cursor:pointer
+}
 
-    @media (max-width: 600px) {
-      .topbar { height: 64px; padding: 0 16px; gap: 14px; }
-      .tabs { height: 52px; }
-      .tab { padding: 0 12px; gap: 9px; font-size: 16px; }
-      .canvas { padding-top: 13vh; padding-bottom: 120px; }
-    }
-  </style>
+.socials{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.social{
+ width:54px;height:54px;border-radius:16px;
+ display:grid;place-items:center;
+ border:1px solid #d6a72c45;
+ background:linear-gradient(145deg,#2a0c12,#100607);
+ color:var(--gold2);cursor:pointer;font-size:20px
+}
+
+.map{
+ height:300px;margin-top:25px;border-radius:22px;
+ border:1px solid #d6a72c2e;
+ background:radial-gradient(circle,#b3142a55,transparent 30%),#090606;
+ display:grid;place-items:center;text-align:center;color:var(--muted)
+}
+.map-icon{font-size:55px}
+
+footer{
+ padding:45px 22px;text-align:center;
+ border-top:1px solid #d6a72c24;background:#030303;
+ position:relative;z-index:2
+}
+.footer-logo{color:var(--gold2);font-weight:bold;font-size:20px}
+.copy{margin-top:20px;color:#655e5a;font-size:13px}
+
+.toast{
+ position:fixed;right:20px;bottom:20px;z-index:300;
+ padding:15px 18px;border-radius:12px;
+ background:#17080b;border:1px solid #d6a72c66;
+ color:#ffe7a0;display:none
+}
+.toast.show{display:block}
+
+/* AUTH PANEL */
+#authPanel{
+ position:fixed;inset:0;z-index:1100;display:none;
+ align-items:flex-start;justify-content:center;
+ padding:105px 18px 30px;background:#000b;
+ backdrop-filter:blur(12px);overflow:auto
+}
+#authPanel.open{display:flex}
+.auth-box{
+ width:min(460px,100%);padding:28px;border-radius:22px;
+ background:linear-gradient(145deg,#ffd966,#e8b62d);
+ color:#090909;border:2px solid #fff0a8;
+ box-shadow:0 25px 80px #000;position:relative
+}
+.auth-head{
+ display:flex;justify-content:space-between;align-items:center;
+ margin-bottom:20px
+}
+.auth-head h2{font-size:28px}
+.close{
+ border:0;background:#170b00;color:#ffd966;
+ border-radius:10px;padding:9px 12px;cursor:pointer;font-weight:bold
+}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:18px}
+.tab{
+ padding:11px;border:1px solid #5d4100;border-radius:10px;
+ background:#fff4b8;color:#241600;font-weight:800;cursor:pointer
+}
+.tab.active{background:#160b00;color:#ffd966}
+.field{margin:12px 0}
+.field label{display:block;margin-bottom:6px;font-weight:bold;color:#2a1b00}
+.field input,.field select{
+ width:100%;padding:13px;border-radius:10px;
+ border:1px solid #0005;background:#130c0d;color:white
+}
+.auth-action{
+ width:100%;padding:14px;border:0;border-radius:11px;
+ background:#160b00;color:#ffd966;font-weight:800;cursor:pointer
+}
+.signup{display:none}
+.signup.show{display:block}
+.auth-note{margin-top:12px;font-size:12px;line-height:1.6;color:#3c2a08}
+
+/* MANAGEMENT */
+#managementPanel{
+ position:fixed;inset:0;z-index:1000;display:none;overflow:auto;
+ background:linear-gradient(135deg,#ffd966,#f1c232,#e6b72d);
+ color:#050505;padding:28px 18px 50px
+}
+#managementPanel.open{display:block}
+.manager{max-width:1200px;margin:auto}
+.manager-top{
+ display:flex;align-items:center;justify-content:space-between;
+ gap:15px;margin-bottom:25px
+}
+.manager-top h2{font-size:clamp(25px,5vw,42px)}
+.manager-top p{font-weight:bold;opacity:.7;margin-top:5px}
+.manager-close{
+ background:#050505;color:#ffd966;border:0;
+ padding:11px 18px;border-radius:10px;font-weight:900;cursor:pointer
+}
+.admin-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.admin-card{
+ background:#ffffff52;border:1px solid #0003;
+ border-radius:18px;padding:22px;box-shadow:0 12px 35px #6b4b0030
+}
+.admin-card h3{margin-bottom:14px}
+.admin-card input,.admin-card select,.admin-card textarea{
+ width:100%;padding:12px;margin:6px 0 10px;
+ border:1px solid #0006;border-radius:9px;
+ background:#fff8cf;color:#050505
+}
+.admin-card textarea{min-height:90px}
+.admin-card button{
+ background:#050505;color:#ffd966;border:0;
+ padding:11px 15px;border-radius:9px;font-weight:800;cursor:pointer
+}
+.admin-table{width:100%;border-collapse:collapse;margin:10px 0}
+.admin-table th,.admin-table td{
+ padding:8px 5px;border-bottom:1px solid #0003;text-align:left
+}
+.admin-table input{width:auto}
+.note{
+ background:#050505;color:#ffd966;padding:12px;
+ border-radius:10px;margin-top:12px;font-weight:bold
+}
+.editor{grid-column:1/-1}
+.edit-row{
+ display:grid;grid-template-columns:190px 1fr;gap:12px;
+ align-items:start;padding:12px;margin:8px 0;
+ border:1px solid #0003;border-radius:10px;background:#ffffff25
+}
+.edit-row label{font-weight:900}
+.edit-row textarea{min-height:80px}
+
+@media(max-width:850px){
+ nav{display:none}
+ .hero{padding-top:115px}
+ .hero-inner{grid-template-columns:1fr;text-align:center}
+ .hero p{margin:auto}
+ .buttons{justify-content:center}
+ .deity{width:min(340px,82vw)}
+ .grid2,.grid3,.contact,.admin-grid{grid-template-columns:1fr}
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .gallery{grid-template-columns:1fr}
+}
+@media(max-width:500px){
+ .top-login{top:78px;right:10px;padding:10px 13px;font-size:12px}
+ .hero h1{font-size:43px}
+ .stats{grid-template-columns:1fr 1fr}
+ .edit-row{grid-template-columns:1fr}
+}
+</style>
 </head>
+
 <body>
-  <main class="viewer">
-    <header class="topbar">
-      <div class="menu" aria-label="मेन्यू">☰</div>
-      <div class="filename">file_00000000f740720bacf...</div>
-      <div class="more" aria-label="अधिक विकल्प">⋮</div>
-    </header>
 
-    <nav class="tabs" aria-label="फ़ाइल टैब्स">
-      <div class="tab"><span class="tab-icon" style="color:#ff6b45">▣</span><span>index.html</span><span class="close">×</span></div>
-      <div class="tab active"><span class="tab-icon">▧</span><span>देवी माँ</span><span class="close">×</span></div>
-    </nav>
+<header>
+<div class="nav">
+<div class="logo">
+<div class="logo-icon">🔱</div>
+MAA BHADRAKALI FOUNDATION
+</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#welfare">Welfare</a>
+<a href="#stories">Impact</a>
+<a href="#gallery">Gallery</a>
+<a href="#donate">Donate</a>
+<a href="#contact">Contact</a>
+</nav>
+</div>
+</header>
 
-    <section class="canvas">
-      <img class="main-image" src="devi.jpg" alt="लाल गुलाबों से सजी देवी माँ की प्रतिमा" />
-    </section>
+<!-- TOP LOGIN BUTTON -->
+<button class="top-login" onclick="openAuth()">🔐 Login / Signup</button>
 
-    <footer class="bottom-bar" aria-hidden="true">☰</footer>
-  </main>
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="hero-inner">
+
+<div>
+<div class="badge">🔱 सेवा • संस्कार • समर्पण</div>
+
+<h1 id="heroTitle">
+माँ <span>भद्रकाली</span><br>फाउंडेशन
+</h1>
+
+<p id="heroDesc">
+समाज सेवा, मानवता और जरूरतमंद लोगों के सहयोग के लिए एक समर्पित प्रयास।
+हमारा उद्देश्य सेवा के माध्यम से समाज में सकारात्मक बदलाव लाना है।
+</p>
+
+<div class="buttons">
+<a href="#donate" class="btn primary">❤️ सहयोग करें</a>
+<a href="#about" class="btn secondary">हमारे बारे में</a>
+</div>
+</div>
+
+<div class="deity-box">
+<div class="deity-glow"></div>
+<img class="deity" src="bhadrakali.jpg" alt="Maa Bhadrakali">
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<div class="container">
+
+<div class="title">
+<small>FOUNDATION का पूरा परिचय</small>
+<h2 id="aboutHeading">सेवा ही हमारा संकल्प</h2>
+<p id="aboutIntro">
+मानवता की सेवा और समाज के उत्थान के लिए निरंतर कार्य करने का हमारा संकल्प है।
+</p>
+</div>
+
+<div class="grid2">
+
+<div class="card">
+<h3>🔱 हमारा उद्देश्य</h3>
+<p id="aboutText">
+जरूरतमंद परिवारों, बच्चों, बुजुर्गों और समाज के कमजोर वर्गों तक सहायता पहुँचाना
+तथा शिक्षा, स्वास्थ्य और सामाजिक जागरूकता के क्षेत्र में सार्थक योगदान देना।
+</p>
+</div>
+
+<div class="card">
+<h3>🌺 हमारी सोच</h3>
+<p>
+हम मानते हैं कि छोटी-सी मदद भी किसी के जीवन में बड़ा बदलाव ला सकती है।
+इसी भावना के साथ ईमानदारी, पारदर्शिता और समर्पण के साथ सेवा कार्य करने का प्रयास करते हैं।
+</p>
+</div>
+
+<div class="card">
+<h3>🎯 हमारा विज़न</h3>
+<p>
+ऐसा समाज जहाँ जरूरत के समय कोई अकेला न हो और सेवा एक सामूहिक जिम्मेदारी बने।
+</p>
+</div>
+
+<div class="card">
+<h3>🤝 हमारा मिशन</h3>
+<p>
+लोगों को जोड़ना, वास्तविक जरूरतों तक सहयोग पहुँचाना और स्वयंसेवकों की मजबूत सेवा टीम तैयार करना।
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- IMPACT -->
+<section>
+<div class="container">
+
+<div class="title">
+<small>IMPACT</small>
+<h2>सेवा की एक छोटी शुरुआत</h2>
+<p>आँकड़े Owner Management Panel से बदले जा सकते हैं।</p>
+</div>
+
+<div class="stats">
+<div class="stat">
+<strong id="stat1">100+</strong>
+<span>परिवार सहायता</span>
+</div>
+
+<div class="stat">
+<strong id="stat2">50+</strong>
+<span>सेवा अभियान</span>
+</div>
+
+<div class="stat">
+<strong id="stat3">25+</strong>
+<span>स्वयंसेवक</span>
+</div>
+
+<div class="stat">
+<strong id="stat4">1000+</strong>
+<span>लाभार्थी</span>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- WELFARE -->
+<section id="welfare">
+<div class="container">
+
+<div class="title">
+<small>🌺 WELFARE ACTIVITIES</small>
+<h2 id="welfareHeading">हमारी <span style="color:var(--gold2)">सेवा गतिविधियाँ</span></h2>
+<p id="welfareDesc">समाज की जरूरतों के अनुसार विभिन्न सेवा क्षेत्रों में सहयोग।</p>
+</div>
+
+<div class="grid3">
+
+<div class="cause">
+<div class="icon">🍚</div>
+<h3>भोजन सेवा</h3>
+<p>जरूरतमंद परिवारों तक भोजन और आवश्यक सामग्री पहुँचाने का प्रयास।</p>
+</div>
+
+<div class="cause">
+<div class="icon">📚</div>
+<h3>शिक्षा सहयोग</h3>
+<p>बच्चों की शिक्षा और अध्ययन सामग्री के लिए सहयोग।</p>
+</div>
+
+<div class="cause">
+<div class="icon">🏥</div>
+<h3>स्वास्थ्य सेवा</h3>
+<p>स्वास्थ्य सहायता और जागरूकता से लोगों को जोड़ना।</p>
+</div>
+
+<div class="cause">
+<div class="icon">👴</div>
+<h3>बुजुर्ग सेवा</h3>
+<p>वरिष्ठ नागरिकों के सम्मान और आवश्यक सहयोग के लिए सेवा कार्य।</p>
+</div>
+
+<div class="cause">
+<div class="icon">🌳</div>
+<h3>पर्यावरण</h3>
+<p>स्वच्छता, हरियाली और पर्यावरण संरक्षण के प्रति जागरूकता।</p>
+</div>
+
+<div class="cause">
+<div class="icon">🤝</div>
+<h3>मानव सेवा</h3>
+<p>जरूरतमंद व्यक्ति तक संभव सहायता पहुँचाने का प्रयास।</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- STORIES -->
+<section id="stories">
+<div class="container">
+
+<div class="title">
+<small>💬 IMPACT STORIES</small>
+<h2 id="impactHeading">सेवा से <span style="color:var(--gold2)">बदलाव</span></h2>
+<p>सेवा कार्यों की stories और अनुभव यहाँ प्रकाशित किए जा सकते हैं।</p>
+</div>
+
+<div class="grid3">
+
+<div class="card story">
+<div class="quote" id="story1">
+“एक छोटी मदद ने एक परिवार के लिए मुश्किल समय को थोड़ा आसान बनाया।”
+</div>
+<div class="author">— सेवा अभियान</div>
+</div>
+
+<div class="card story">
+<div class="quote" id="story2">
+“शिक्षा सामग्री मिलने से बच्चों का पढ़ाई के प्रति उत्साह बढ़ा।”
+</div>
+<div class="author">— शिक्षा सहयोग</div>
+</div>
+
+<div class="card story">
+<div class="quote" id="story3">
+“समाज के लोगों ने साथ आकर जरूरतमंदों तक राहत पहुँचाई।”
+</div>
+<div class="author">— जनसेवा टीम</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section>
+<div class="container">
+
+<div class="title">
+<small>हमारी सेवाएँ / सामाजिक कार्य</small>
+<h2>सामाजिक <span style="color:var(--gold2)">सहयोग</span></h2>
+</div>
+
+<div class="grid3">
+
+<div class="cause">
+<div class="icon">🧺</div>
+<h3>राहत सामग्री</h3>
+<p>विशेष परिस्थितियों में राशन, कपड़े और आवश्यक वस्तुओं का सहयोग।</p>
+</div>
+
+<div class="cause">
+<div class="icon">👩‍👧</div>
+<h3>महिला एवं बाल कल्याण</h3>
+<p>महिलाओं और बच्चों के सम्मान, सुरक्षा और विकास के लिए सामाजिक सहयोग।</p>
+</div>
+
+<div class="cause">
+<div class="icon">📢</div>
+<h3>जागरूकता अभियान</h3>
+<p>समाज से जुड़े महत्वपूर्ण विषयों पर सकारात्मक जागरूकता।</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+<div class="container">
+
+<div class="title">
+<small>🖼️ GALLERY — PHOTOS / VIDEOS</small>
+<h2>सेवा की <span style="color:var(--gold2)">झलक</span></h2>
+<p>Owner Panel से photos और videos जोड़ने का structure तैयार है।</p>
+</div>
+
+<div class="gallery" id="publicGallery">
+
+<div class="gallery-item">
+<img src="bhadrakali.jpg" alt="Maa Bhadrakali">
+<div class="caption">Maa Bhadrakali</div>
+</div>
+
+<div class="gallery-item">
+<div style="height:100%;display:grid;place-items:center;font-size:50px">📷</div>
+<div class="caption">Activity Photo</div>
+</div>
+
+<div class="gallery-item">
+<div style="height:100%;display:grid;place-items:center;font-size:50px">🎥</div>
+<div class="caption">Activity Video</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- DONATION -->
+<section id="donate">
+<div class="container">
+
+<div class="donate">
+
+<div class="title">
+<small>❤️ DONATION / सहयोग करें</small>
+<h2>सेवा में आपका योगदान</h2>
+</div>
+
+<p id="donationText">
+आपका छोटा-सा सहयोग किसी जरूरतमंद के लिए बहुत बड़ी मदद बन सकता है।
+</p>
+
+<div class="upi" id="publicUpi">
+UPI ID: YOUR-UPI@upi
+</div>
+
+<br>
+
+<a href="#" class="btn primary"
+onclick="demoDonate();return false">
+❤️ Donate Now
+</a>
+
+</div>
+</div>
+</section>
+
+<!-- TEAM -->
+<section>
+<div class="container">
+
+<div class="title">
+<small>हमारी टीम</small>
+<h2>सेवा के साथी</h2>
+<p>Owner Dashboard से team structure और permissions manage किए जा सकते हैं।</p>
+</div>
+
+<div class="grid3">
+
+<div class="card" style="text-align:center">
+<div class="icon">🙏</div>
+<h3>Foundation Team</h3>
+<p>सेवा एवं प्रबंधन</p>
+</div>
+
+<div class="card" style="text-align:center">
+<div class="icon">🤝</div>
+<h3>Volunteers</h3>
+<p>सेवा सहयोगी</p>
+</div>
+
+<div class="card" style="text-align:center">
+<div class="icon">❤️</div>
+<h3>Supporters</h3>
+<p>हमारे सहयोगी</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+
+<div class="title">
+<small>CONTACT + SOCIAL MEDIA</small>
+<h2>हमसे <span style="color:var(--gold2)">जुड़ें</span></h2>
+<p>सेवा कार्य से जुड़ने या सहयोग करने के लिए संपर्क करें।</p>
+</div>
+
+<div class="contact">
+
+<div>
+
+<div class="contact-item">
+<b>📞 फोन</b>
+<span id="phoneText">+91 XXXXXXXXXX</span>
+</div>
+
+<div class="contact-item">
+<b>✉️ ईमेल</b>
+<span id="emailText">info@maabhadrakalifoundation.org</span>
+</div>
+
+<div class="contact-item">
+<b>📍 पता</b>
+<span id="addressText">आपका शहर, आपका राज्य, भारत</span>
+</div>
+
+<div class="card">
+<h3>Social Media</h3>
+<p>हमारे official platforms से जुड़ें:</p>
+
+<div class="socials">
+<button class="social" onclick="socialMsg('Facebook')">f</button>
+<button class="social" onclick="socialMsg('Instagram')">◎</button>
+<button class="social" onclick="socialMsg('Threads')">@</button>
+<button class="social" onclick="socialMsg('WhatsApp Channel')">◉</button>
+<button class="social" onclick="socialMsg('X / Twitter')">𝕏</button>
+</div>
+</div>
+
+</div>
+
+<div class="card">
+<form class="contact-form" onsubmit="sendMessage(event)">
+<input placeholder="आपका नाम" required>
+<input type="tel" placeholder="मोबाइल नंबर" required>
+<input type="email" placeholder="ईमेल">
+<textarea placeholder="आपका संदेश" required></textarea>
+<button type="submit">संदेश भेजें</button>
+</form>
+</div>
+
+</div>
+
+<div class="map">
+<div>
+<div class="map-icon">📍</div>
+<h3 style="color:var(--gold2)">Google Map / Location</h3>
+<p>यहाँ Foundation की exact Google Maps location embed की जाएगी।</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- LOGIN / SIGNUP PANEL -->
+<div id="authPanel">
+
+<div class="auth-box">
+
+<div class="auth-head">
+<div>
+<h2 id="authTitle">🔐 Login</h2>
+<p>Owner / Team Member access</p>
+</div>
+<button class="close" onclick="closeAuth()">✕</button>
+</div>
+
+<div class="tabs">
+<button id="loginTab" class="tab active" onclick="switchAuth('login')">Login</button>
+<button id="signupTab" class="tab" onclick="switchAuth('signup')">Signup</button>
+</div>
+
+<div id="loginFields">
+
+<div class="field">
+<label>Role</label>
+<select id="loginRole">
+<option>Owner</option>
+<option>Team Member</option>
+</select>
+</div>
+
+<div class="field">
+<label>Username</label>
+<input id="loginUser" placeholder="Username">
+</div>
+
+<div class="field">
+<label>Password</label>
+<input id="loginPass" type="password" placeholder="Password">
+</div>
+
+<button class="auth-action" onclick="loginUser()">Login</button>
+
+</div>
+
+<div id="signupFields" class="signup">
+
+<div class="field">
+<label>Full Name</label>
+<input id="signupName" placeholder="आपका नाम">
+</div>
+
+<div class="field">
+<label>Mobile Number</label>
+<input id="signupMobile" type="tel" placeholder="मोबाइल नंबर">
+</div>
+
+<div class="field">
+<label>Email</label>
+<input id="signupEmail" type="email" placeholder="ईमेल">
+</div>
+
+<div class="field">
+<label>Create Password</label>
+<input id="signupPass" type="password" placeholder="Password">
+</div>
+
+<button class="auth-action" onclick="signupUser()">Create Account</button>
+
+</div>
+
+<div id="authMsg" class="auth-note"></div>
+
+<div class="auth-note">
+Demo Login:<br>
+<b>Owner → username: owner | password: 1234</b><br>
+<b>Team Member → username: team | password: 1234</b>
+</div>
+
+</div>
+</div>
+
+<!-- MANAGEMENT PANEL -->
+<div id="managementPanel">
+
+<div class="manager">
+
+<div class="manager-top">
+<div>
+<h2>⚙️ Management Panel</h2>
+<p id="managerRole">Owner • Full Management Access</p>
+</div>
+
+<button class="manager-close" onclick="closeManagement()">
+✕ Close Panel
+</button>
+</div>
+
+<div class="admin-grid">
+
+<!-- CUSTOMIZATION -->
+<div class="admin-card">
+<h3>🎨 Website Customization</h3>
+
+<label>Foundation Name</label>
+<input id="siteName" value="MAA BHADRAKALI FOUNDATION">
+
+<label>Gold Accent</label>
+<input id="goldColor" value="#d6a72c">
+
+<button onclick="saveCustomization()">
+Save Customization
+</button>
+</div>
+
+<!-- TEAM PERMISSIONS -->
+<div class="admin-card">
+<h3>👥 Team Permissions</h3>
+
+<label>Team Member</label>
+<select id="member">
+<option>Rahul</option>
+<option>Amit</option>
+<option>Suresh</option>
+</select>
+
+<table class="admin-table">
+<tr><th>Section</th><th>Edit</th></tr>
+<tr><td>🌺 Welfare</td><td><input type="checkbox" checked></td></tr>
+<tr><td>💬 Impact Stories</td><td><input type="checkbox"></td></tr>
+<tr><td>📖 Introduction</td><td><input type="checkbox"></td></tr>
+<tr><td>🤝 Services</td><td><input type="checkbox"></td></tr>
+<tr><td>🖼️ Gallery</td><td><input type="checkbox" checked></td></tr>
+<tr><td>❤️ Donation</td><td><input type="checkbox"></td></tr>
+<tr><td>📞 Contact</td><td><input type="checkbox"></td></tr>
+<tr><td>📍 Google Map</td><td><input type="checkbox"></td></tr>
+</table>
+
+<button onclick="savePermissions()">Save Permissions</button>
+</div>
+
+<!-- GALLERY MANAGEMENT -->
+<div class="admin-card">
+<h3>🖼️ Gallery Management</h3>
+
+<input id="galleryFile" type="file" accept="image/*,video/*">
+<input id="galleryCaption" placeholder="Photo / Video Caption">
+
+<button onclick="addGallery()">Add Media</button>
+
+<div id="galleryMsg" class="note">
+No new media added.
+</div>
+</div>
+
+<!-- DONATION -->
+<div class="admin-card">
+<h3>❤️ Donation Management</h3>
+
+<input id="upiInput" placeholder="UPI ID">
+<textarea id="bankInput" placeholder="Bank Details"></textarea>
+<input id="qrInput" type="file" accept="image/*">
+
+<button onclick="saveDonation()">Save Donation Details</button>
+
+<div id="donationMsg" class="note">
+Donation details editable.
+</div>
+</div>
+
+<!-- IMPACT -->
+<div class="admin-card">
+<h3>📊 Impact Numbers</h3>
+
+<input id="families" value="100+" placeholder="Families">
+<input id="campaigns" value="50+" placeholder="Campaigns">
+<input id="volunteers" value="25+" placeholder="Volunteers">
+<input id="beneficiaries" value="1000+" placeholder="Beneficiaries">
+
+<button onclick="updateStats()">Update Impact</button>
+</div>
+
+<!-- SOCIAL -->
+<div class="admin-card">
+<h3>📱 Social Media & Contact</h3>
+
+<input id="facebook" placeholder="Facebook URL">
+<input id="instagram" placeholder="Instagram URL">
+<input id="threads" placeholder="Threads URL">
+<input id="whatsapp" placeholder="WhatsApp Channel URL">
+<input id="twitter" placeholder="X / Twitter URL">
+<input id="phone" placeholder="WhatsApp / Phone Number">
+<input id="email" placeholder="Email">
+
+<button onclick="saveContact()">Save Contact & Social</button>
+</div>
+
+<!-- MAP -->
+<div class="admin-card">
+<h3>📍 Google Map / Location</h3>
+
+<input id="mapUrl" placeholder="Google Maps Embed URL">
+<input id="mapAddress" placeholder="Foundation Address">
+
+<button onclick="saveMap()">Save Location</button>
+</div>
+
+<!-- WEBSITE TEXT -->
+<div class="admin-card editor">
+
+<h3>✏️ Website Text / Content Management</h3>
+
+<p>
+Owner यहाँ website के main headings, descriptions,
+stories, donation text और address बदल सकता है।
+</p>
+
+<div class="edit-row">
+<label>Hero Title</label>
+<textarea id="editHeroTitle">माँ भद्रकाली फाउंडेशन</textarea>
+</div>
+
+<div class="edit-row">
+<label>Hero Description</label>
+<textarea id="editHeroDesc">समाज सेवा, मानवता और जरूरतमंद लोगों के सहयोग के लिए एक समर्पित प्रयास। हमारा उद्देश्य सेवा के माध्यम से समाज में सकारात्मक बदलाव लाना है।</textarea>
+</div>
+
+<div class="edit-row">
+<label>About Heading</label>
+<textarea id="editAboutHeading">सेवा ही हमारा संकल्प</textarea>
+</div>
+
+<div class="edit-row">
+<label>About Text</label>
+<textarea id="editAboutText">जरूरतमंद परिवारों, बच्चों, बुजुर्गों और समाज के कमजोर वर्गों तक सहायता पहुँचाना तथा शिक्षा, स्वास्थ्य और सामाजिक जागरूकता के क्षेत्र में सार्थक योगदान देना।</textarea>
+</div>
+
+<div class="edit-row">
+<label>Welfare Heading</label>
+<textarea id="editWelfareHeading">हमारी सेवा गतिविधियाँ</textarea>
+</div>
+
+<div class="edit-row">
+<label>Welfare Description</label>
+<textarea id="editWelfareDesc">समाज की जरूरतों के अनुसार विभिन्न सेवा क्षेत्रों में सहयोग।</textarea>
+</div>
+
+<div class="edit-row">
+<label>Impact Heading</label>
+<textarea id="editImpactHeading">सेवा से बदलाव</textarea>
+</div>
+
+<div class="edit-row">
+<label>Impact Story 1</label>
+<textarea id="editStory1">“एक छोटी मदद ने एक परिवार के लिए मुश्किल समय को थोड़ा आसान बनाया।”</textarea>
+</div>
+
+<div class="edit-row">
+<label>Impact Story 2</label>
+<textarea id="editStory2">“शिक्षा सामग्री मिलने से बच्चों का पढ़ाई के प्रति उत्साह बढ़ा।”</textarea>
+</div>
+
+<div class="edit-row">
+<label>Impact Story 3</label>
+<textarea id="editStory3">“समाज के लोगों ने साथ आकर जरूरतमंदों तक राहत पहुँचाई।”</textarea>
+</div>
+
+<div class="edit-row">
+<label>Donation Text</label>
+<textarea id="editDonationText">आपका छोटा-सा सहयोग किसी जरूरतमंद के लिए बहुत बड़ी मदद बन सकता है।</textarea>
+</div>
+
+<div class="edit-row">
+<label>Contact Address</label>
+<textarea id="editAddress">आपका शहर, आपका राज्य, भारत</textarea>
+</div>
+
+<button onclick="saveWebsiteText()">
+💾 Save All Website Text
+</button>
+
+<div id="textMsg" class="note">
+Text changes preview mode में हैं।
+</div>
+
+</div>
+
+<!-- REG / DARPAN -->
+<div class="admin-card">
+<h3>🚫 REG / DARPAN</h3>
+
+<p>
+यह section अभी public website पर hidden रहेगा।
+</p>
+
+<div class="note">
+🔒 Hidden by Owner Settings
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+<footer>
+<div class="footer-logo">🔱 MAA BHADRAKALI FOUNDATION</div>
+<p>सेवा • संस्कार • समर्पण</p>
+<div class="copy">
+© 2026 Maa Bhadrakali Foundation • All Rights Reserved
+</div>
+</footer>
+
+<div id="toast" class="toast"></div>
+
+<script>
+
+function toast(msg){
+ const t=document.getElementById("toast");
+ t.textContent=msg;
+ t.classList.add("show");
+ setTimeout(()=>t.classList.remove("show"),2800);
+}
+
+/* AUTH */
+
+function openAuth(){
+ document.getElementById("authPanel").classList.add("open");
+ document.body.style.overflow="hidden";
+ switchAuth("login");
+}
+
+function closeAuth(){
+ document.getElementById("authPanel").classList.remove("open");
+ document.body.style.overflow="";
+}
+
+function switchAuth(mode){
+
+ const login=document.getElementById("loginFields");
+ const signup=document.getElementById("signupFields");
+ const loginTab=document.getElementById("loginTab");
+ const signupTab=document.getElementById("signupTab");
+ const title=document.getElementById("authTitle");
+
+ document.getElementById("authMsg").textContent="";
+
+ if(mode==="signup"){
+   login.style.display="none";
+   signup.classList.add("show");
+   loginTab.classList.remove("active");
+   signupTab.classList.add("active");
+   title.textContent="📝 Signup";
+ }else{
+   login.style.display="block";
+   signup.classList.remove("show");
+   loginTab.classList.add("active");
+   signupTab.classList.remove("active");
+   title.textContent="🔐 Login";
+ }
+}
+
+function loginUser(){
+
+ const role=document.getElementById("loginRole").value;
+ const username=document.getElementById("loginUser").value.trim();
+ const password=document.getElementById("loginPass").value;
+
+ let correct=false;
+
+ if(role==="Owner" && username==="owner" && password==="1234"){
+   correct=true;
+ }
+
+ if(role==="Team Member" && username==="team" && password==="1234"){
+   correct=true;
+ }
+
+ if(!correct){
+   document.getElementById("authMsg").textContent=
+   "❌ गलत username, password या role.";
+   return;
+ }
+
+ closeAuth();
+
+ document.getElementById("managerRole").textContent=
+ role==="Owner"
+ ? "Owner • Full Management Access"
+ : "Team Member • Assigned Access";
+
+ document.getElementById("managementPanel").classList.add("open");
+ document.body.style.overflow="hidden";
+
+ toast("✓ Login successful");
+}
+
+function signupUser(){
+
+ const name=document.getElementById("signupName").value.trim();
+ const mobile=document.getElementById("signupMobile").value.trim();
+ const pass=document.getElementById("signupPass").value;
+
+ if(!name || !mobile || !pass){
+   document.getElementById("authMsg").textContent=
+   "❌ Name, mobile और password भरें।";
+   return;
+ }
+
+ document.getElementById("authMsg").textContent=
+ "✓ Signup request submitted. Owner approval required.";
+
+ toast("Signup request submitted");
+}
+
+/* MANAGEMENT */
+
+function closeManagement(){
+ document.getElementById("managementPanel").classList.remove("open");
+ document.body.style.overflow="";
+}
+
+function saveCustomization(){
+
+ const name=document.getElementById("siteName").value;
+ const color=document.getElementById("goldColor").value;
+
+ document.documentElement.style.setProperty("--gold",color);
+ document.documentElement.style.setProperty("--gold2",color);
+
+ document.querySelector(".logo").lastChild.textContent=
+ " "+name;
+
+ toast("✓ Customization saved");
+}
+
+function savePermissions(){
+
+ const member=document.getElementById("member").value;
+ const total=document.querySelectorAll(
+ ".admin-table input[type=checkbox]:checked"
+ ).length;
+
+ toast(member+" को "+total+" permissions दी गईं");
+}
+
+function addGallery(){
+
+ const file=document.getElementById("galleryFile").files[0];
+
+ if(!file){
+   toast("पहले photo/video चुनें");
+   return;
+ }
+
+ const caption=
+ document.getElementById("galleryCaption").value ||
+ "Service Activity";
+
+ document.getElementById("galleryMsg").textContent=
+ "✓ "+file.name+" — "+caption;
+
+ toast("Gallery media added");
+}
+
+function saveDonation(){
+
+ const upi=document.getElementById("upiInput").value || "Not Set";
+
+ document.getElementById("publicUpi").textContent=
+ "UPI ID: "+upi;
+
+ document.getElementById("donationMsg").textContent=
+ "✓ Donation saved • UPI: "+upi;
+
+ toast("Donation details updated");
+}
+
+function updateStats(){
+
+ document.getElementById("stat1").textContent=
+ document.getElementById("families").value;
+
+ document.getElementById("stat2").textContent=
+ document.getElementById("campaigns").value;
+
+ document.getElementById("stat3").textContent=
+ document.getElementById("volunteers").value;
+
+ document.getElementById("stat4").textContent=
+ document.getElementById("beneficiaries").value;
+
+ toast("Impact numbers updated");
+}
+
+function saveContact(){
+
+ const phone=document.getElementById("phone").value;
+ const email=document.getElementById("email").value;
+
+ if(phone)
+ document.getElementById("phoneText").textContent=phone;
+
+ if(email)
+ document.getElementById("emailText").textContent=email;
+
+ toast("Contact & social details saved");
+}
+
+function saveMap(){
+
+ const address=document.getElementById("mapAddress").value;
+
+ if(address)
+ document.getElementById("addressText").textContent=address;
+
+ toast("Location saved");
+}
+
+/* WEBSITE TEXT EDITOR */
+
+function saveWebsiteText(){
+
+ const heroTitle=
+ document.getElementById("editHeroTitle").value.trim();
+
+ const heroDesc=
+ document.getElementById("editHeroDesc").value.trim();
+
+ const aboutHeading=
+ document.getElementById("editAboutHeading").value.trim();
+
+ const aboutText=
+ document.getElementById("editAboutText").value.trim();
+
+ const welfareHeading=
+ document.getElementById("editWelfareHeading").value.trim();
+
+ const welfareDesc=
+ document.getElementById("editWelfareDesc").value.trim();
+
+ const impactHeading=
+ document.getElementById("editImpactHeading").value.trim();
+
+ const story1=
+ document.getElementById("editStory1").value.trim();
+
+ const story2=
+ document.getElementById("editStory2").value.trim();
+
+ const story3=
+ document.getElementById("editStory3").value.trim();
+
+ const donation=
+ document.getElementById("editDonationText").value.trim();
+
+ const address=
+ document.getElementById("editAddress").value.trim();
+
+ document.getElementById("heroTitle").innerHTML=
+ heroTitle.replace(/\n/g,"<br>");
+
+ document.getElementById("heroDesc").textContent=heroDesc;
+
+ document.getElementById("aboutHeading").textContent=
+ aboutHeading;
+
+ document.getElementById("aboutText").textContent=
+ aboutText;
+
+ document.getElementById("welfareHeading").textContent=
+ welfareHeading;
+
+ document.getElementById("welfareDesc").textContent=
+ welfareDesc;
+
+ document.getElementById("impactHeading").textContent=
+ impactHeading;
+
+ document.getElementById("story1").textContent=story1;
+ document.getElementById("story2").textContent=story2;
+ document.getElementById("story3").textContent=story3;
+
+ document.getElementById("donationText").textContent=
+ donation;
+
+ document.getElementById("addressText").textContent=
+ address;
+
+ document.getElementById("textMsg").textContent=
+ "✓ सभी website text update हो गए।";
+
+ toast("Website text updated");
+}
+
+/* CONTACT */
+
+function sendMessage(event){
+
+ event.preventDefault();
+
+ toast("धन्यवाद! आपका संदेश प्राप्त हुआ।");
+
+}
+
+function socialMsg(name){
+
+ toast(name+" link अभी Owner Panel में add करना है।");
+
+}
+
+function demoDonate(){
+
+ toast("Donation payment अभी demo mode में है।");
+
+}
+
+</script>
+
 </body>
 </html>
