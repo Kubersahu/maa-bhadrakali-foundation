@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>देवी माँ</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --background: #292d30;
+      --bar: #202427;
+      --muted: #aeb3b5;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--background);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    .viewer {
+      width: min(100%, 720px);
+      min-height: 100vh;
+      background: var(--background);
+      box-shadow: 0 0 30px rgba(0, 0, 0, .2);
+    }
+
+    .topbar {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 0 24px;
+      background: var(--bar);
+      color: #f2f2f2;
+    }
+
+    .menu, .more {
+      font-size: 32px;
+      line-height: 1;
+      color: #f2f2f2;
+    }
+
+    .menu { letter-spacing: -5px; width: 38px; overflow: hidden; }
+    .more { margin-left: auto; font-size: 34px; }
+
+    .filename {
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-size: clamp(20px, 4vw, 30px);
+      font-weight: 600;
+    }
+
+    .tabs {
+      height: 58px;
+      display: flex;
+      align-items: stretch;
+      background: #25292c;
+      border-bottom: 1px solid #353a3d;
+    }
+
+    .tab {
+      min-width: 50%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 18px;
+      border-right: 1px solid #34383b;
+      color: #f2f2f2;
+      font-size: 19px;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .tab.active { border-top: 3px solid #3979e8; }
+    .tab-icon { color: #61d7ba; font-size: 22px; }
+    .close { margin-left: auto; font-size: 25px; color: #f7f7f7; }
+
+    .canvas {
+      min-height: calc(100vh - 130px);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: clamp(80px, 14vh, 190px) 6px 170px;
+    }
+
+    .main-image {
+      display: block;
+      width: 100%;
+      max-width: 690px;
+      height: auto;
+      object-fit: contain;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, .22);
+    }
+
+    .bottom-bar {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bar);
+      border-top: 1px solid #353a3d;
+      color: #777d80;
+      font-size: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .topbar { height: 64px; padding: 0 16px; gap: 14px; }
+      .tabs { height: 52px; }
+      .tab { padding: 0 12px; gap: 9px; font-size: 16px; }
+      .canvas { padding-top: 13vh; padding-bottom: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="viewer">
+    <header class="topbar">
+      <div class="menu" aria-label="मेन्यू">☰</div>
+      <div class="filename">file_00000000f740720bacf...</div>
+      <div class="more" aria-label="अधिक विकल्प">⋮</div>
+    </header>
+
+    <nav class="tabs" aria-label="फ़ाइल टैब्स">
+      <div class="tab"><span class="tab-icon" style="color:#ff6b45">▣</span><span>index.html</span><span class="close">×</span></div>
+      <div class="tab active"><span class="tab-icon">▧</span><span>देवी माँ</span><span class="close">×</span></div>
+    </nav>
+
+    <section class="canvas">
+      <img class="main-image" src="devi.jpg" alt="लाल गुलाबों से सजी देवी माँ की प्रतिमा" />
+    </section>
+
+    <footer class="bottom-bar" aria-hidden="true">☰</footer>
+  </main>
+</body>
+</html>
