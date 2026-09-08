@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://kubersahu.github.io/maa-bhadrakali-foundation/sitemap.xml
