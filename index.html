@@ -782,7 +782,7 @@ async function topLogin(){
 async function googleAuth(){
  const msg=document.getElementById('authMsg');
  if(msg)msg.textContent='⏳ Google → Supabase Auth खुल रहा है…';
- const redirectTo=window.location.origin+window.location.pathname;
+ const redirectTo='https://kubersahu.github.io/maa-bhadrakali-utsav-samiti-jhansi/';
  const {error}=await sb.auth.signInWithOAuth({provider:'google',options:{redirectTo}});
  if(error&&msg)msg.textContent='❌ '+error.message;
 }
