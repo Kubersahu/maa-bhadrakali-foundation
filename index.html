@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MAA BHADRAKALI UTSAV SAMITI JHANSI | नवरात्रि, आरती और महाआरती</title>
-<meta name="description" content="MAA BHADRAKALI UTSAV SAMITI JHANSI की आधिकारिक वेबसाइट। नवरात्रि उत्सव, माता आगमन, पूजा, लाइव आरती, प्रसाद वितरण, महाआरती और समिति की जानकारी।">
+<meta name="description" content="MAA BHADRAKALI UTSAV SAMITI JHANSI की आधिकारिक वेबसाइट। झाँसी में माँ भद्रकाली के नवरात्रि उत्सव, माता आगमन, पूजा, आरती, महाआरती, प्रसाद और धार्मिक कार्यक्रमों की जानकारी।">
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <link rel="canonical" href="https://kubersahu.github.io/maa-bhadrakali-utsav-samiti-jhansi/">
 <meta name="theme-color" content="#0d0708">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="MAA BHADRAKALI UTSAV SAMITI JHANSI">
-<meta property="og:description" content="नवरात्रि उत्सव, माता आगमन, पूजा, लाइव आरती, प्रसाद वितरण और महाआरती की जानकारी।">
+<meta property="og:description" content="झाँसी में माँ भद्रकाली के नवरात्रि उत्सव, माता आगमन, पूजा, आरती, महाआरती, प्रसाद और धार्मिक कार्यक्रमों की जानकारी।">
 <meta property="og:url" content="https://kubersahu.github.io/maa-bhadrakali-utsav-samiti-jhansi/">
 <meta property="og:image" content="https://kubersahu.github.io/maa-bhadrakali-utsav-samiti-jhansi/bhadrakali.jpg">
 <meta property="og:site_name" content="MAA BHADRAKALI UTSAV SAMITI JHANSI">
@@ -19,7 +19,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MAA BHADRAKALI UTSAV SAMITI JHANSI">
-<meta name="twitter:description" content="नवरात्रि उत्सव, आरती, पूजा, प्रसाद वितरण और महाआरती की जानकारी।">
+<meta name="twitter:description" content="झाँसी में माँ भद्रकाली के नवरात्रि उत्सव, पूजा, आरती, महाआरती, प्रसाद और धार्मिक कार्यक्रमों की जानकारी।">
 <meta name="twitter:image" content="https://kubersahu.github.io/maa-bhadrakali-utsav-samiti-jhansi/bhadrakali.jpg">
 
 <script type="application/ld+json">
@@ -29,7 +29,7 @@
   "name": "MAA BHADRAKALI UTSAV SAMITI JHANSI",
   "url": "https://kubersahu.github.io/maa-bhadrakali-utsav-samiti-jhansi/",
   "logo": "https://kubersahu.github.io/maa-bhadrakali-utsav-samiti-jhansi/bhadrakali.jpg",
-  "description": "माँ भद्रकाली उत्सव समिति, झाँसी — नवरात्रि, पूजा, आरती, महाआरती, प्रसाद और धार्मिक उत्सवों के आयोजन के लिए समर्पित समिति।"
+  "description": "माँ भद्रकाली उत्सव समिति, झाँसी — नवरात्रि उत्सव, माता आगमन, पूजा, आरती, महाआरती, प्रसाद और धार्मिक कार्यक्रमों की जानकारी।"
 }
 </script>
 <style>
@@ -610,6 +610,8 @@ footer{position:relative;z-index:2;padding:45px 22px;text-align:center;border-to
         <label>Hero Badge</label><input id="editHeroBadge" class="owner-input">
         <label>Hero Heading</label><textarea id="editHeroTitle" class="owner-textarea"></textarea>
         <label>Hero Description</label><textarea id="editHeroDesc" class="owner-textarea"></textarea>
+        <label>🔍 Google SEO Description</label><textarea id="editSeoDescription" class="owner-textarea" placeholder="Google Search में दिखने वाली description"></textarea>
+        <small style="display:block;margin:-4px 0 12px;color:var(--muted)">यह description Google, Facebook/WhatsApp preview और X preview के लिए इस्तेमाल होगी।</small>
         <label>About Heading</label><input id="editAboutHeading" class="owner-input">
         <label>About Description</label><textarea id="editAboutDesc" class="owner-textarea"></textarea>
         <label>Gallery Heading</label><input id="editGalleryHeading" class="owner-input">
@@ -750,6 +752,7 @@ const defaults={
  upi:'',donation:'माँ के धार्मिक आयोजन, प्रसाद एवं भंडारे में सहयोग की जानकारी यहाँ Owner द्वारा अपडेट की जाएगी।',
  phone:'+91 XXXXXXXXXX',email:'info@maabhadrakalifoundation.org',address:'झाँसी, उत्तर प्रदेश, भारत',map:'',live:'',
  heroDesc:'माँ भद्रकाली की भक्ति, पूजा, नवरात्रि उत्सव, माता आगमन, आरती, महाआरती, प्रसाद और धार्मिक आयोजनों की आधिकारिक जानकारी।',
+ seoDescription:'MAA BHADRAKALI UTSAV SAMITI JHANSI की आधिकारिक वेबसाइट। झाँसी में माँ भद्रकाली के नवरात्रि उत्सव, माता आगमन, पूजा, आरती, महाआरती, प्रसाद और धार्मिक कार्यक्रमों की जानकारी।',
  aboutDesc:'माँ भद्रकाली उत्सव समिति, झाँसी धार्मिक परंपराओं, नवरात्रि उत्सव और माँ भद्रकाली की आराधना से जुड़े आयोजनों के लिए समर्पित है।'
 };
 let settings={...defaults};
@@ -1070,9 +1073,16 @@ function renderCreatorInfo(){
 }
 
 /* ===== WEBSITE TEXT ===== */
-function saveAllWebsiteText(){const d={};['editHeroBadge','editHeroTitle','editHeroDesc','editAboutHeading','editAboutDesc','editGalleryHeading','editGalleryText','editLiveHeading','editContactHeading','editContactText'].forEach(id=>{const e=document.getElementById(id);if(e)d[id]=e.value});finalStore('mbus_text_final',d);renderFinalWebsiteText();settings.heroDesc=d.editHeroDesc||settings.heroDesc;settings.aboutDesc=d.editAboutDesc||settings.aboutDesc;saveSettings();toast('✓ Website का text save हो गया।')}
-function renderFinalWebsiteText(){const d=finalGet('mbus_text_final',{});const e1=document.getElementById('heroBadge');if(e1&&d.editHeroBadge)e1.textContent=d.editHeroBadge;const e2=document.getElementById('heroTitle');if(e2&&d.editHeroTitle)e2.innerHTML=String(d.editHeroTitle).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');const e3=document.getElementById('heroDescription');if(e3&&d.editHeroDesc)e3.textContent=d.editHeroDesc;const ah=document.querySelector('#about .section-title h2');if(ah&&d.editAboutHeading)ah.textContent=d.editAboutHeading;const ap=document.querySelector('#about .section-title p');if(ap&&d.editAboutDesc)ap.textContent=d.editAboutDesc;const gh=document.getElementById('galleryHeading');if(gh&&d.editGalleryHeading)gh.textContent=d.editGalleryHeading;const gp=document.getElementById('galleryText');if(gp&&d.editGalleryText)gp.textContent=d.editGalleryText;const lh=document.querySelector('#live h2');if(lh&&d.editLiveHeading)lh.textContent=d.editLiveHeading;const ch=document.querySelector('#contact h2');if(ch&&d.editContactHeading)ch.textContent=d.editContactHeading;const cp=document.querySelector('#contact .section-title p');if(cp&&d.editContactText)cp.textContent=d.editContactText}
-function loadFinalForms(){const defs={editHeroBadge:'🔱 जय माँ भद्रकाली • झाँसी',editHeroTitle:'माँ भद्रकाली\nउत्सव समिति, झाँसी',editHeroDesc:defaults.heroDesc,editAboutHeading:'माँ की भक्ति, उत्सव का संकल्प',editAboutDesc:defaults.aboutDesc,editGalleryHeading:'माँ के उत्सव की झलक',editGalleryText:'',editLiveHeading:'माँ की लाइव आरती',editContactHeading:'माँ के भक्तों से जुड़ाव',editContactText:'दर्शन, पूजा, उत्सव या समिति से संबंधित जानकारी के लिए संपर्क करें.'},d=finalGet('mbus_text_final',{});Object.keys(defs).forEach(id=>{const e=document.getElementById(id);if(e)e.value=d[id]??defs[id]});const b=finalGet('mbus_banners',{});document.getElementById('mLowerHeading')&&(document.getElementById('mLowerHeading').value=b.lowerHeading||'');document.getElementById('mLowerText')&&(document.getElementById('mLowerText').value=b.lowerText||'');renderFinalStoredBanners();if(settings.gallery)finalStore('mbus_gallery_final',settings.gallery);renderFinalGalleryMedia();renderFinalWebsiteText();const p=finalGet('mbus_permissions',{});['Utsav','Aarti','Prasad','Maha','Gallery','Banners','Team','Contact','Live','Text','Donation'].forEach(x=>{const e=document.getElementById('perm'+x);if(e)e.checked=!!p[x.toLowerCase()]})}
+function updateSeoDescription(){
+ const desc=settings.seoDescription||defaults.seoDescription;
+ const meta=document.querySelector('meta[name="description"]');if(meta)meta.setAttribute('content',desc);
+ const og=document.querySelector('meta[property="og:description"]');if(og)og.setAttribute('content',desc);
+ const tw=document.querySelector('meta[name="twitter:description"]');if(tw)tw.setAttribute('content',desc);
+ const seo=document.getElementById('editSeoDescription');if(seo)seo.value=desc;
+}
+function saveAllWebsiteText(){const d={};['editHeroBadge','editHeroTitle','editHeroDesc','editSeoDescription','editAboutHeading','editAboutDesc','editGalleryHeading','editGalleryText','editLiveHeading','editContactHeading','editContactText'].forEach(id=>{const e=document.getElementById(id);if(e)d[id]=e.value});finalStore('mbus_text_final',d);renderFinalWebsiteText();settings.heroDesc=d.editHeroDesc||settings.heroDesc;settings.aboutDesc=d.editAboutDesc||settings.aboutDesc;settings.seoDescription=d.editSeoDescription||settings.seoDescription||defaults.seoDescription;updateSeoDescription();saveSettings();toast('✓ Website text + Google SEO description save हो गया।')}
+function renderFinalWebsiteText(){const d=finalGet('mbus_text_final',{});const e1=document.getElementById('heroBadge');if(e1&&d.editHeroBadge)e1.textContent=d.editHeroBadge;const e2=document.getElementById('heroTitle');if(e2&&d.editHeroTitle)e2.innerHTML=String(d.editHeroTitle).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');const e3=document.getElementById('heroDescription');if(e3&&d.editHeroDesc)e3.textContent=d.editHeroDesc;const ah=document.querySelector('#about .section-title h2');if(ah&&d.editAboutHeading)ah.textContent=d.editAboutHeading;const ap=document.querySelector('#about .section-title p');if(ap&&d.editAboutDesc)ap.textContent=d.editAboutDesc;const gh=document.getElementById('galleryHeading');if(gh&&d.editGalleryHeading)gh.textContent=d.editGalleryHeading;const gp=document.getElementById('galleryText');if(gp&&d.editGalleryText)gp.textContent=d.editGalleryText;const lh=document.querySelector('#live h2');if(lh&&d.editLiveHeading)lh.textContent=d.editLiveHeading;const ch=document.querySelector('#contact h2');if(ch&&d.editContactHeading)ch.textContent=d.editContactHeading;const cp=document.querySelector('#contact .section-title p');if(cp&&d.editContactText)cp.textContent=d.editContactText;updateSeoDescription()}
+function loadFinalForms(){const defs={editHeroBadge:'🔱 जय माँ भद्रकाली • झाँसी',editHeroTitle:'माँ भद्रकाली\nउत्सव समिति, झाँसी',editHeroDesc:defaults.heroDesc,editSeoDescription:settings.seoDescription||defaults.seoDescription,editAboutHeading:'माँ की भक्ति, उत्सव का संकल्प',editAboutDesc:defaults.aboutDesc,editGalleryHeading:'माँ के उत्सव की झलक',editGalleryText:'',editLiveHeading:'माँ की लाइव आरती',editContactHeading:'माँ के भक्तों से जुड़ाव',editContactText:'दर्शन, पूजा, उत्सव या समिति से संबंधित जानकारी के लिए संपर्क करें.'},d=finalGet('mbus_text_final',{});Object.keys(defs).forEach(id=>{const e=document.getElementById(id);if(e)e.value=d[id]??defs[id]});const b=finalGet('mbus_banners',{});document.getElementById('mLowerHeading')&&(document.getElementById('mLowerHeading').value=b.lowerHeading||'');document.getElementById('mLowerText')&&(document.getElementById('mLowerText').value=b.lowerText||'');renderFinalStoredBanners();if(settings.gallery)finalStore('mbus_gallery_final',settings.gallery);renderFinalGalleryMedia();renderFinalWebsiteText();const p=finalGet('mbus_permissions',{});['Utsav','Aarti','Prasad','Maha','Gallery','Banners','Team','Contact','Live','Text','Donation'].forEach(x=>{const e=document.getElementById('perm'+x);if(e)e.checked=!!p[x.toLowerCase()]})}
 function savePermissions(){const p={};['Utsav','Aarti','Prasad','Maha','Gallery','Banners','Team','Contact','Live','Text','Donation'].forEach(x=>p[x.toLowerCase()]=!!document.getElementById('perm'+x)?.checked);finalStore('mbus_permissions',p);toast('✓ Team permissions save हो गईं।')}
 
 function sendMessage(e){e.preventDefault();toast('धन्यवाद! आपका संदेश प्राप्त हुआ।')}
