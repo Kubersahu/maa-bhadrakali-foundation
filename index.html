@@ -984,6 +984,7 @@ function renderCurrentUserIdCard(user,profile,member,isOwner){
  const meta=user?.user_metadata||{};
  const values={
   name:saved.name||profile?.full_name||member?.name||meta.full_name||meta.name||(isOwner?'Owner':'Team Member'),
+  role:saved.role||profile?.role||member?.role||(isOwner?'Owner':'Team Member'),
   email:saved.email||profile?.email||member?.email||user?.email||'',
   phone:saved.phone||profile?.phone||'',
   address:saved.address||profile?.address||'',
@@ -998,13 +999,13 @@ function renderCurrentUserIdCard(user,profile,member,isOwner){
    <div class="id-card-live-wrap" role="img" aria-label="MAA BHADRAKALI UTSAV SAMITI JHANSI ID Card">
      <img src="id-card-template.png" alt="MBUS Professional ID Card">
      <img id="liveIdPhoto" class="id-live-photo ${values.photo?'show':''}" src="${e(values.photo)}" alt="Member Photo">
-     <div class="id-live-number"><small>MBUS</small><b id="liveIdNumber">${e(values.id)}</b><em>TEAM MEMBER ID</em></div>
+     <div class="id-live-number"><b id="liveIdNumber">${e(values.id)}</b></div>
      <div id="liveIdName" class="id-live-text id-live-name">${e(values.name)}</div>
+     <div id="liveIdRole" class="id-live-text id-live-role">${e(values.role)}</div>
      <div id="liveIdEmail" class="id-live-text id-live-email">${e(values.email)}</div>
      <div id="liveIdPhone" class="id-live-text id-live-phone">${e(values.phone)}</div>
      <div id="liveIdAddress" class="id-live-text id-live-address">${e(values.address)}</div>
      <div id="liveIdCity" class="id-live-text id-live-city">${e(values.city)}</div>
-     <div id="liveIdSince" class="id-live-text id-live-since">${e(values.since)}</div>
      <div class="id-live-status"><span id="liveIdStatus">${e(values.status)}</span></div>
    </div>
    <div class="id-card-print-tools">
@@ -1016,6 +1017,7 @@ function renderCurrentUserIdCard(user,profile,member,isOwner){
      <p>नीचे details भरें। Save करते ही वही details इसी ID card image के अंदर proper जगह पर दिखाई देंगी।</p>
      <div class="id-live-grid">
        <label>Full Name<input id="idEditName" value="${e(values.name)}"></label>
+       <label>Role / Position<input id="idEditRole" value="${e(values.role)}"></label>
        <label>Email ID<input id="idEditEmail" type="email" value="${e(values.email)}"></label>
        <label>Phone Number<input id="idEditPhone" value="${e(values.phone)}"></label>
        <label>Address<input id="idEditAddress" value="${e(values.address)}"></label>
@@ -1040,7 +1042,7 @@ function setLiveIdValue(id,value){const el=document.getElementById(id);if(el)el.
 async function saveIdCardDetails(){
  const get=id=>(document.getElementById(id)?.value||'').trim();
  const d={
-  name:get('idEditName'),email:get('idEditEmail'),phone:get('idEditPhone'),address:get('idEditAddress'),city:get('idEditCity'),since:get('idEditSince'),status:get('idEditStatus')||'Active',id:get('idEditId')||'372020CD',photo:finalGet('mbus_id_card_details',{}).photo||''
+  name:get('idEditName'),role:get('idEditRole'),email:get('idEditEmail'),phone:get('idEditPhone'),address:get('idEditAddress'),city:get('idEditCity'),since:get('idEditSince'),status:get('idEditStatus')||'Active',id:get('idEditId')||'372020CD',photo:finalGet('mbus_id_card_details',{}).photo||''
  };
  const f=document.getElementById('idEditPhoto')?.files?.[0];
  try{
@@ -1048,7 +1050,7 @@ async function saveIdCardDetails(){
   finalStore('mbus_id_card_details',d);
   const ok=await saveRemoteExtras('idCardDetails',d);
   if(!ok)throw new Error('online save failed');
-  setLiveIdValue('liveIdNumber',d.id);setLiveIdValue('liveIdName',d.name);setLiveIdValue('liveIdEmail',d.email);setLiveIdValue('liveIdPhone',d.phone);setLiveIdValue('liveIdAddress',d.address);setLiveIdValue('liveIdCity',d.city);setLiveIdValue('liveIdSince',d.since);setLiveIdValue('liveIdStatus',d.status);
+  setLiveIdValue('liveIdNumber',d.id);setLiveIdValue('liveIdName',d.name);setLiveIdValue('liveIdRole',d.role);setLiveIdValue('liveIdEmail',d.email);setLiveIdValue('liveIdPhone',d.phone);setLiveIdValue('liveIdAddress',d.address);setLiveIdValue('liveIdCity',d.city);setLiveIdValue('liveIdSince',d.since);setLiveIdValue('liveIdStatus',d.status);
   const photo=document.getElementById('liveIdPhoto');if(photo){if(d.photo){photo.src=d.photo;photo.classList.add('show')}else{photo.removeAttribute('src');photo.classList.remove('show')}}
   toast('✓ ID Card details online save हो गईं।');toggleIdCardEditor(false);
  }catch(err){console.error(err);toast('❌ ID Card details save नहीं हुईं। Supabase Storage/Table check करें।')}
@@ -1278,20 +1280,18 @@ html,body{width:100%;max-width:100%;overflow-x:hidden!important}
 /* ===== ID CARD LIVE DETAILS EDITOR (FINAL) ===== */
 .id-card-live-wrap{position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;border-radius:18px;background:#090707;line-height:1}
 .id-card-live-wrap>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.id-live-photo{position:absolute;left:12.1%;top:51.9%;width:21.0%;height:34.8%;object-fit:cover;border-radius:2.5%;z-index:4;display:none}
+.id-live-photo{position:absolute;left:12.65%;top:46.05%;width:22.25%;height:30.0%;object-fit:cover;border-radius:2.5%;z-index:4;display:none}
 .id-live-photo.show{display:block}
-.id-live-text{position:absolute;left:51.8%;width:19.8%;height:3.0%;display:flex;align-items:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#111;font-family:Arial,sans-serif;font-weight:800;font-size:clamp(7px,1.25vw,17px);line-height:1;z-index:5;padding:0 .8%;box-sizing:border-box}
-.id-live-name{top:62.0%}.id-live-email{top:65.8%}.id-live-phone{top:69.5%}.id-live-address{top:73.25%}.id-live-city{top:77.05%}.id-live-since{top:80.8%}
-.id-live-status{position:absolute;left:52.0%;top:85.0%;width:8.2%;height:3.4%;display:flex;align-items:center;justify-content:center;z-index:5}
-.id-live-status span{background:#31894b;color:#fff;border-radius:7px;padding:2px 7px;font-family:Arial,sans-serif;font-weight:900;font-size:clamp(7px,1.2vw,15px);line-height:1}
-.id-live-number{position:absolute;left:36.7%;top:50.2%;width:29.0%;height:9.6%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;background:linear-gradient(180deg,#070707,#111);border:2px solid #f3cf4e;border-radius:14px;z-index:6;font-family:Arial,sans-serif;text-align:center;box-sizing:border-box}
-.id-live-number small{color:#f5d35a;font-weight:900;font-size:clamp(7px,1.25vw,17px);line-height:1}
-.id-live-number b{font-size:clamp(14px,3.2vw,42px);line-height:1.02;letter-spacing:.4px}
-.id-live-number em{font-style:normal;color:#f5d35a;font-weight:900;font-size:clamp(6px,0.9vw,12px);line-height:1;margin-top:2px}
+.id-live-text{position:absolute;left:52.55%;width:21.9%;height:3.05%;display:flex;align-items:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#111;font-family:Arial,sans-serif;font-weight:800;font-size:clamp(8px,1.45vw,19px);line-height:1;z-index:5;padding:0 1%;box-sizing:border-box}
+.id-live-name{top:55.05%}.id-live-role{top:58.55%}.id-live-email{top:62.05%}.id-live-phone{top:65.55%}.id-live-address{top:69.05%}.id-live-city{top:72.55%}.id-live-since{top:76.05%}
+.id-live-status{position:absolute;left:52.7%;top:79.55%;width:8.2%;height:3.6%;display:flex;align-items:center;justify-content:center;z-index:5}
+.id-live-status span{background:#31894b;color:#fff;border-radius:7px;padding:2px 7px;font-family:Arial,sans-serif;font-weight:900;font-size:clamp(8px,1.35vw,17px);line-height:1}
+.id-live-number{position:absolute;left:40.05%;top:46.0%;width:30.0%;height:4.8%;display:flex;align-items:center;justify-content:center;color:#111;background:transparent;border:0;border-radius:0;z-index:6;font-family:Arial,sans-serif;text-align:center;box-sizing:border-box;pointer-events:none}
+.id-live-number b{font-size:clamp(10px,1.8vw,22px);line-height:1;font-weight:900;letter-spacing:.2px;color:#111;white-space:nowrap}
 .id-live-editor{display:none;margin:10px auto 16px;width:min(720px,100%);padding:14px;border:1px solid #d6a72c55;border-radius:16px;background:linear-gradient(145deg,#fff1a6,#f1c33b);color:#120b00;box-sizing:border-box}
 .id-live-editor.open{display:block}
 .id-live-editor h3{margin:0 0 6px;font-size:18px}.id-live-editor p{margin:0 0 10px;font-size:12px;color:#5a3b00}
 .id-live-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.id-live-grid label{font-size:11px;font-weight:900}.id-live-grid input{width:100%;box-sizing:border-box;margin-top:3px;padding:9px 10px;border:1px solid #7d5a08;border-radius:8px;background:#fff9dd;color:#111;font-weight:700;font-size:13px}
 .id-live-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.id-live-actions button{border:0;border-radius:9px;padding:10px 13px;background:#120b00;color:#ffd966;font-weight:900;cursor:pointer}.id-live-actions button.secondary{background:#fff7d0;color:#3d2800;border:1px solid #7d5a08}
-@media(max-width:600px){.current-user-id-card{margin-top:5px}.id-card-live-wrap{border-radius:12px}.id-live-text{font-size:clamp(6px,1.15vw,11px);padding:0 .6%}.id-live-status span{font-size:clamp(7px,1.3vw,12px);padding:2px 4px}.id-live-number{border-radius:10px}.id-live-number b{font-size:clamp(13px,3.1vw,25px)}.id-live-grid{grid-template-columns:1fr}.id-live-editor{padding:12px}}
+@media(max-width:600px){.current-user-id-card{margin-top:5px}.id-card-live-wrap{border-radius:12px}.id-live-text{font-size:clamp(7px,1.45vw,13px);padding:0 .7%}.id-live-status span{font-size:clamp(7px,1.3vw,12px);padding:2px 4px}.id-live-number{border-radius:10px}.id-live-number b{font-size:clamp(14px,3.5vw,28px)}.id-live-grid{grid-template-columns:1fr}.id-live-editor{padding:12px}}
 </style>
