@@ -594,13 +594,13 @@ footer{position:relative;z-index:2;padding:45px 22px;text-align:center;border-to
       <div class="manager-card" id="cardBanners" data-access="banners">
         <h3>🖼️ Banners</h3><p>ऊपर के 5 और नीचे के 2 banner अलग-अलग बदलें।</p>
         <div class="media-admin-grid">
-          <div class="media-admin-card"><b>Upper Banner 1</b><input id="heroUpload1" type="file" accept="image/*"><input id="heroCap1" placeholder="Banner 1 text"></div>
-          <div class="media-admin-card"><b>Upper Banner 2</b><input id="heroUpload2" type="file" accept="image/*"><input id="heroCap2" placeholder="Banner 2 text"></div>
-          <div class="media-admin-card"><b>Upper Banner 3</b><input id="heroUpload3" type="file" accept="image/*"><input id="heroCap3" placeholder="Banner 3 text"></div>
-          <div class="media-admin-card"><b>Upper Banner 4</b><input id="heroUpload4" type="file" accept="image/*"><input id="heroCap4" placeholder="Banner 4 text"></div>
-          <div class="media-admin-card"><b>Upper Banner 5</b><input id="heroUpload5" type="file" accept="image/*"><input id="heroCap5" placeholder="Banner 5 text"></div>
-          <div class="media-admin-card"><b>Lower Banner 1</b><input id="lowerUpload1" type="file" accept="image/*"><input id="lowerCap1" placeholder="Lower Banner 1 text"></div>
-          <div class="media-admin-card"><b>Lower Banner 2</b><input id="lowerUpload2" type="file" accept="image/*"><input id="lowerCap2" placeholder="Lower Banner 2 text"></div>
+          <div class="media-admin-card"><b>Upper Banner 1</b><input id="heroUpload1" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><input id="heroCap1" placeholder="Banner 1 text"></div>
+          <div class="media-admin-card"><b>Upper Banner 2</b><input id="heroUpload2" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><input id="heroCap2" placeholder="Banner 2 text"></div>
+          <div class="media-admin-card"><b>Upper Banner 3</b><input id="heroUpload3" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><input id="heroCap3" placeholder="Banner 3 text"></div>
+          <div class="media-admin-card"><b>Upper Banner 4</b><input id="heroUpload4" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><input id="heroCap4" placeholder="Banner 4 text"></div>
+          <div class="media-admin-card"><b>Upper Banner 5</b><input id="heroUpload5" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><input id="heroCap5" placeholder="Banner 5 text"></div>
+          <div class="media-admin-card"><b>Lower Banner 1</b><input id="lowerUpload1" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><input id="lowerCap1" placeholder="Lower Banner 1 text"></div>
+          <div class="media-admin-card"><b>Lower Banner 2</b><input id="lowerUpload2" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><input id="lowerCap2" placeholder="Lower Banner 2 text"></div>
         </div>
         <label>Lower Banner Heading</label><input id="mLowerHeading" class="owner-input" placeholder="Heading">
         <label>Lower Banner Description</label><textarea id="mLowerText" class="owner-textarea" placeholder="Description"></textarea>
@@ -614,20 +614,20 @@ footer{position:relative;z-index:2;padding:45px 22px;text-align:center;border-to
         <label>प्रातः शृंगार</label><input id="mShringar" class="owner-input"><label>प्रातः आरती</label><input id="mMorning" class="owner-input"><label>सायंकालीन आरती</label><input id="mEveningAarti" class="owner-input"><label>महा आरती समय</label><input id="mMahaAarti" class="owner-input"><button onclick="saveSettings()">💾 Save Timings</button>
       </div>
       <div class="manager-card" id="cardCommittee" data-access="committee"><h3>👑 पदाधिकारी Photos</h3>
-        <label>पंडित जी का नाम</label><input id="mPandit" class="owner-input"><label>पंडित जी की Photo</label><input id="mPanditPhoto" type="file" accept="image/*"><label>अध्यक्ष का नाम</label><input id="mPresident" class="owner-input"><label>अध्यक्ष की Photo</label><input id="mPresidentPhoto" type="file" accept="image/*"><label>कोषाध्यक्ष का नाम</label><input id="mTreasurer" class="owner-input"><label>कोषाध्यक्ष की Photo</label><input id="mTreasurerPhoto" type="file" accept="image/*"><button onclick="saveCommitteeV3()">💾 Save पदाधिकारी</button>
+        <label>पंडित जी का नाम</label><input id="mPandit" class="owner-input"><label>पंडित जी की Photo</label><input id="mPanditPhoto" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><label>अध्यक्ष का नाम</label><input id="mPresident" class="owner-input"><label>अध्यक्ष की Photo</label><input id="mPresidentPhoto" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><label>कोषाध्यक्ष का नाम</label><input id="mTreasurer" class="owner-input"><label>कोषाध्यक्ष की Photo</label><input id="mTreasurerPhoto" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><button onclick="saveCommitteeV3()">💾 Save पदाधिकारी</button>
       </div>
       <div class="manager-card" id="cardPrasad" data-access="prasad"><h3>🍚 प्रसाद / भंडारा + Donation</h3>
-        <label>प्रसाद / भंडारा जानकारी</label><textarea id="mPrasad" class="owner-textarea"></textarea><label>Donation / UPI ID</label><input id="mUpi" class="owner-input" placeholder="example@upi"><label>📲 QR / Scanner Photo</label><input id="mQr" class="owner-input" type="file" accept="image/*"><label>सहयोग Text</label><textarea id="mDonation" class="owner-textarea"></textarea><button onclick="saveDonationData()">💾 Save UPI + QR</button>
+        <label>प्रसाद / भंडारा जानकारी</label><textarea id="mPrasad" class="owner-textarea"></textarea><label>Donation / UPI ID</label><input id="mUpi" class="owner-input" placeholder="example@upi"><label>📲 QR / Scanner Photo</label><input id="mQr" class="owner-input" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><label>सहयोग Text</label><textarea id="mDonation" class="owner-textarea"></textarea><button onclick="saveDonationData()">💾 Save UPI + QR</button>
       </div>
       <div class="manager-card" id="cardLive" data-access="live"><h3>🔴 Live Aarti</h3><label>YouTube Live</label><input id="mLiveYoutube" class="owner-input"><label>Instagram Live</label><input id="mLiveInstagram" class="owner-input"><label>Facebook Live</label><input id="mLiveFacebook" class="owner-input"><button onclick="saveLiveLinks()">💾 Save Live Links</button></div>
-      <div class="manager-card" id="cardVideo" data-access="video"><h3>🎬 Video</h3><p>Website के video uploads यहाँ अलग manage करें।</p><div class="media-admin-grid"><div class="media-admin-card"><b>Video 1 — 16:9</b><input id="mVideo1" type="file" accept="video/*"></div><div class="media-admin-card"><b>Video 2 — 9:16</b><input id="mVideo2" type="file" accept="video/*"></div><div class="media-admin-card"><b>Video 3 — 9:16</b><input id="mVideo3" type="file" accept="video/*"></div></div><button onclick="saveVideosOnly()">💾 Save Videos</button><div id="mVideoList" class="manager-note">Video Gallery से अलग permission के साथ manage होगी।</div></div>
+      <div class="manager-card" id="cardVideo" data-access="video"><h3>🎬 Video</h3><p>Website के video uploads यहाँ अलग manage करें।</p><div class="media-admin-grid"><div class="media-admin-card"><b>Video 1 — 16:9</b><input id="mVideo1" type="file" accept="video/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"></div><div class="media-admin-card"><b>Video 2 — 9:16</b><input id="mVideo2" type="file" accept="video/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"></div><div class="media-admin-card"><b>Video 3 — 9:16</b><input id="mVideo3" type="file" accept="video/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"></div></div><button onclick="saveVideosOnly()">💾 Save Videos</button><div id="mVideoList" class="manager-note">Video Gallery से अलग permission के साथ manage होगी।</div></div>
       <div class="manager-card" id="cardCreator" data-access="creator"><h3>👨‍💻 Website Creator</h3><label>Creator Name</label><input id="mCreatorName" class="owner-input"><label>Creator Photo URL</label><input id="mCreatorPhoto" class="owner-input"><button onclick="saveCreatorInfo()">💾 Save Creator Info</button></div>
       <div class="manager-card content-editor" id="cardText" data-access="text"><h3>✏️ Website Text</h3><label>Hero Badge</label><input id="editHeroBadge" class="owner-input"><label>Hero Heading</label><textarea id="editHeroTitle" class="owner-textarea"></textarea><label>Hero Description</label><textarea id="editHeroDesc" class="owner-textarea"></textarea><label>About Heading</label><input id="editAboutHeading" class="owner-input"><label>About Description</label><textarea id="editAboutDesc" class="owner-textarea"></textarea><label>Gallery Heading</label><input id="editGalleryHeading" class="owner-input"><label>Gallery Description</label><textarea id="editGalleryText" class="owner-textarea"></textarea><label>Live Aarti Heading</label><input id="editLiveHeading" class="owner-input"><label>Contact Heading</label><input id="editContactHeading" class="owner-input"><label>Contact Description</label><textarea id="editContactText" class="owner-textarea"></textarea><button onclick="saveAllWebsiteText()">💾 Save Website Text</button></div>
       <div class="manager-card" id="cardSeo" data-access="seo"><h3>🔍 Google SEO Description</h3><p>Google Search के लिए अलग description.</p><textarea id="editSeoDescription" class="owner-textarea" placeholder="Google Search description"></textarea><button onclick="saveSeoDescriptionOnly()">💾 Save Google SEO Description</button></div>
-      <div class="manager-card" id="cardGallery" data-access="gallery"><h3>📸 Gallery</h3><div class="media-admin-grid gallery-admin-grid"><div class="media-admin-card"><b>Photo 1</b><input id="mGallery1" type="file" accept="image/*"><input id="mCaption1" placeholder="Photo 1 Caption"></div><div class="media-admin-card"><b>Photo 2</b><input id="mGallery2" type="file" accept="image/*"><input id="mCaption2" placeholder="Photo 2 Caption"></div><div class="media-admin-card"><b>Photo 3</b><input id="mGallery3" type="file" accept="image/*"><input id="mCaption3" placeholder="Photo 3 Caption"></div><div class="media-admin-card"><b>Slider Photo 1</b><input id="mGallery4_1" type="file" accept="image/*"></div><div class="media-admin-card"><b>Slider Photo 2</b><input id="mGallery4_2" type="file" accept="image/*"></div><div class="media-admin-card"><b>Slider Photo 3</b><input id="mGallery4_3" type="file" accept="image/*"></div><div class="media-admin-card"><b>Slider Photo 4</b><input id="mGallery4_4" type="file" accept="image/*"></div><div class="media-admin-card"><b>Single Photo</b><input id="mGallerySingle" type="file" accept="image/*"><input id="mCaptionSingle" placeholder="Single Photo Caption"></div></div><button onclick="saveGalleryPhotosOnly()">💾 Save Gallery Photos</button><div id="mGalleryList" class="manager-note">Gallery photos यहाँ manage होंगी।</div></div>
+      <div class="manager-card" id="cardGallery" data-access="gallery"><h3>📸 Gallery</h3><div class="media-admin-grid gallery-admin-grid"><div class="media-admin-card"><b>Photo 1</b><input id="mGallery1" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><input id="mCaption1" placeholder="Photo 1 Caption"></div><div class="media-admin-card"><b>Photo 2</b><input id="mGallery2" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><input id="mCaption2" placeholder="Photo 2 Caption"></div><div class="media-admin-card"><b>Photo 3</b><input id="mGallery3" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><input id="mCaption3" placeholder="Photo 3 Caption"></div><div class="media-admin-card"><b>Slider Photo 1</b><input id="mGallery4_1" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"></div><div class="media-admin-card"><b>Slider Photo 2</b><input id="mGallery4_2" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"></div><div class="media-admin-card"><b>Slider Photo 3</b><input id="mGallery4_3" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"></div><div class="media-admin-card"><b>Slider Photo 4</b><input id="mGallery4_4" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"></div><div class="media-admin-card"><b>Single Photo</b><input id="mGallerySingle" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><input id="mCaptionSingle" placeholder="Single Photo Caption"></div></div><button onclick="saveGalleryPhotosOnly()">💾 Save Gallery Photos</button><div id="mGalleryList" class="manager-note">Gallery photos यहाँ manage होंगी।</div></div>
       <div class="manager-card" id="cardTeam" data-access="team"><h3>👥 Team Members</h3><p>हर member की अलग permissions set करें।</p><div id="teamManagerList" class="team-manager-list"></div><button type="button" onclick="addTeamManagerRow()">➕ Add Team Member</button><button type="button" onclick="saveTeamV3()">💾 Save Team + Permissions</button></div>
       <div class="manager-card" id="cardSocial" data-access="social"><h3>📱 Social Media</h3><label>Facebook</label><input id="mFacebook" class="owner-input"><label>Instagram 1</label><input id="mInstagram" class="owner-input"><label>Instagram 2</label><input id="mInstagram2" class="owner-input"><label>WhatsApp</label><input id="mWhatsApp" class="owner-input"><label>Threads</label><input id="mThreads" class="owner-input"><label>X / Twitter</label><input id="mX" class="owner-input"><button onclick="saveLogoSocial('social')">💾 Save Social Media</button></div>
-      <div class="manager-card" id="cardLogo" data-access="logo"><h3>🎨 Logo</h3><label>ऊपर Header Logo</label><input id="mHeaderLogo" class="owner-input" type="file" accept="image/*"><label>बीच वाला बड़ा Logo</label><input id="mMiddleLogo" class="owner-input" type="file" accept="image/*"><button onclick="saveLogoSocial('logo')">💾 Save Logos</button></div>
+      <div class="manager-card" id="cardLogo" data-access="logo"><h3>🎨 Logo</h3><label>ऊपर Header Logo</label><input id="mHeaderLogo" class="owner-input" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><label>बीच वाला बड़ा Logo</label><input id="mMiddleLogo" class="owner-input" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><button onclick="saveLogoSocial('logo')">💾 Save Logos</button></div>
       <div class="manager-card" id="cardContact" data-access="contact"><h3>📞 Contact</h3><label>फोन</label><input id="mPhone" class="owner-input"><label>ईमेल</label><input id="mEmail" class="owner-input"><label>पूरा पता</label><textarea id="mAddress" class="owner-textarea"></textarea><button onclick="saveSettings()">💾 Save Contact</button></div>
       <div class="manager-card" id="cardMap" data-access="map"><h3>📍 Google Map</h3><label>Google Maps URL</label><input id="mMap" class="owner-input" placeholder="Google Maps link"><button onclick="saveSettings()">💾 Save Google Map</button></div>
       <div class="manager-card" id="cardRegistrationIds" data-access="registrationIds"><h3>🪪 Registration ID View</h3><p>सभी registered users की professional ID cards यहाँ केवल view की जा सकती हैं।</p><div id="registeredUsersList"><div class="user-id-empty">⏳ Registered users load हो रहे हैं…</div></div></div>
@@ -905,8 +905,10 @@ function renderFinalGalleryMedia(){
 async function saveCommitteeV3(){
  const pf=document.getElementById('mPanditPhoto')?.files[0],prf=document.getElementById('mPresidentPhoto')?.files[0],tf=document.getElementById('mTreasurerPhoto')?.files[0];
  const d=finalGet('mbus_committee_v3',{});d.pandit=document.getElementById('mPandit')?.value.trim()||'';d.president=document.getElementById('mPresident')?.value.trim()||'';d.treasurer=document.getElementById('mTreasurer')?.value.trim()||'';
- if(pf)d.panditPhoto=await finalReadFile(pf);if(prf)d.presidentPhoto=await finalReadFile(prf);if(tf)d.treasurerPhoto=await finalReadFile(tf);
- finalStore('mbus_committee_v3',d);settings.pandit=d.pandit||settings.pandit;settings.president=d.president||settings.president;settings.treasurer=d.treasurer||settings.treasurer;settings.committee=d;const ok=await saveRemoteExtras('committee',d);render();toast(ok?'✓ पदाधिकारी की photos और names सभी के लिए save हो गए।':'⚠️ Local save हुआ; Supabase save नहीं हुआ।');
+ if(pf)d.panditPhoto=await uploadPublicMedia(await compressGalleryImage(pf,1200),'committee');
+ if(prf)d.presidentPhoto=await uploadPublicMedia(await compressGalleryImage(prf,1200),'committee');
+ if(tf)d.treasurerPhoto=await uploadPublicMedia(await compressGalleryImage(tf,1200),'committee');
+ finalStore('mbus_committee_v3',d);settings.pandit=d.pandit||settings.pandit;settings.president=d.president||settings.president;settings.treasurer=d.treasurer||settings.treasurer;settings.committee=d;const ok=await saveRemoteExtras('committee',d);render();toast(ok?'✓ पदाधिकारी की photos online save हो गईं।':'⚠️ Local save हुआ; Supabase save नहीं हुआ।');
 }
 function defaultMemberPermissions(){const p={};ACCESS_KEYS.forEach(k=>p[k]=false);return p}
 function addTeamManagerRow(data={name:'',role:'',email:'',details:'',photo:'',permissions:defaultMemberPermissions()}){
@@ -914,7 +916,7 @@ function addTeamManagerRow(data={name:'',role:'',email:'',details:'',photo:'',pe
  const p={...defaultMemberPermissions(),...(data.permissions||{})};
  const row=document.createElement('div');row.className='team-manager-row';
  const permHtml=ACCESS_KEYS.map(k=>`<label><input type="checkbox" data-perm="${k}"> ${escapeHtml(permLabel(k))}</label>`).join('');
- row.innerHTML=`<div class="mini-grid"><input class="tm-name" placeholder="Team Member का नाम"><input class="tm-role" placeholder="पद / जिम्मेदारी"></div><input class="tm-email" type="email" placeholder="Supabase Login Email"><textarea class="tm-details" placeholder="छोटा परिचय / जिम्मेदारी"></textarea><input class="tm-photo" type="file" accept="image/*"><div class="tm-permission-box"><b>इस Member को कौन-कौन से menu edit करने हैं:</b><div class="tm-permissions">${permHtml}</div></div><button type="button" class="remove-team" style="margin-top:6px">🗑️ Remove</button>`;
+ row.innerHTML=`<div class="mini-grid"><input class="tm-name" placeholder="Team Member का नाम"><input class="tm-role" placeholder="पद / जिम्मेदारी"></div><input class="tm-email" type="email" placeholder="Supabase Login Email"><textarea class="tm-details" placeholder="छोटा परिचय / जिम्मेदारी"></textarea><input class="tm-photo" type="file" accept="image/*" onclick="event.stopPropagation()" onchange="event.stopPropagation()"><div class="tm-permission-box"><b>इस Member को कौन-कौन से menu edit करने हैं:</b><div class="tm-permissions">${permHtml}</div></div><button type="button" class="remove-team" style="margin-top:6px">🗑️ Remove</button>`;
  row.querySelector('.tm-name').value=data.name||'';row.querySelector('.tm-role').value=data.role||'';row.querySelector('.tm-email').value=data.email||'';row.querySelector('.tm-details').value=data.details||'';row.querySelectorAll('[data-perm]').forEach(cb=>cb.checked=!!p[cb.dataset.perm]);row.querySelector('.remove-team').onclick=()=>row.remove();wrap.appendChild(row)
 }
 async function saveTeamV3(){
@@ -1034,12 +1036,12 @@ async function applyManagementAccess(user){
  }catch(e){console.warn('Profile read:',e)}
  if(isOwner){
    panel.classList.add('open');document.body.style.overflow='hidden';titleEl.textContent='⚙️ Owner Management Panel';roleEl.textContent='Owner • Full Management Access';
-   renderCurrentUserIdCard(user,profile,null,true);renderManagementMenu(ACCESS_KEYS);loadFinalForms();loadRegisteredUsers();loadApprovedTeamMembers();return true;
+   renderCurrentUserIdCard(user,profile,null,true);renderManagementMenu(ACCESS_KEYS);loadFinalForms();loadRegisteredUsers();loadApprovedTeamMembers();restoreLastManagerCard();return true;
  }
  const approved=profile?.status==='approved',isTeam=approved&&!!member;
  if(!isTeam){toast(approved?'✓ Login successful. Team access अभी assigned नहीं है।':'✓ Signup/Login successful. Owner approval के बाद Team access मिलेगा।');return false}
  const perms=normalizePerms(profile?.permissions||member.permissions);panel.classList.add('open');document.body.style.overflow='hidden';titleEl.textContent='⚙️ Team Management Panel';roleEl.textContent=`Team Member • ${profile?.full_name||member.name||email} • Assigned Access`;
- renderCurrentUserIdCard(user,profile,member,false);renderManagementMenu(ACCESS_KEYS.filter(k=>perms[k]));loadFinalForms();return true;
+ renderCurrentUserIdCard(user,profile,member,false);renderManagementMenu(ACCESS_KEYS.filter(k=>perms[k]));loadFinalForms();restoreLastManagerCard();return true;
 }
 function renderCurrentUserIdCard(user,profile,member,isOwner){
  const box=document.getElementById('currentUserIdCard');if(!box)return;
@@ -1120,6 +1122,16 @@ async function saveIdCardDetails(){
   toast('❌ ID Card details save नहीं हुईं। Supabase check करें।');
  }
 }
+function restoreLastManagerCard(){
+ try{
+  const id=sessionStorage.getItem('mbus_last_manager_card');
+  if(id && document.getElementById(id)){
+   const key=id.replace(/^card/,'');
+   openManagementMenu(key.charAt(0).toLowerCase()+key.slice(1));
+   return;
+  }
+ }catch(_){}
+}
 function renderManagementMenu(keys){
  const menu=document.getElementById('managementMenu');if(!menu)return;menu.innerHTML='';
  const allowed=new Set(keys);Object.entries(MENU_ITEMS).forEach(([key,label])=>{if(!allowed.has(key))return;const b=document.createElement('button');b.type='button';b.className='management-menu-btn';b.dataset.target='card'+key.charAt(0).toUpperCase()+key.slice(1);b.innerHTML=`<span>${escapeHtml(label)}</span><small>OPEN</small>`;b.onclick=()=>openManagementMenu(key);menu.appendChild(b)});
@@ -1164,19 +1176,19 @@ function renderDonation(){const d=finalGet('mbus_donation_final',{}),qr=document
 function saveLiveLinks(){const d={youtube:document.getElementById('mLiveYoutube')?.value.trim()||'',instagram:document.getElementById('mLiveInstagram')?.value.trim()||'',facebook:document.getElementById('mLiveFacebook')?.value.trim()||''};finalStore('mbus_live_final',d);renderLive();toast('✓ तीनों Live links save हो गए।')}
 function renderLive(){const d=finalGet('mbus_live_final',{}),items=[['liveYoutubeBtn',d.youtube],['liveInstagramBtn',d.instagram],['liveFacebookBtn',d.facebook]];items.forEach(([id,url])=>{const e=document.getElementById(id);if(e){e.style.display=url?'inline-block':'none';e.href=url||'#'}});const t=document.getElementById('liveText');if(t)t.textContent=(d.youtube||d.instagram||d.facebook)?'नीचे दिए platform button से Live Aarti देखें।':'YouTube, Instagram और Facebook Live links Owner Panel से जोड़े जा सकते हैं।'}
 function saveLogoSocial(mode="both"){return (async()=>{
-  const d=finalGet('mbus_brand_social',{});
-  const hf=document.getElementById('mHeaderLogo')?.files[0],mf=document.getElementById('mMiddleLogo')?.files[0];
-  if(mode!=='social'){if(hf)d.headerLogo=await uploadPublicMedia(hf,'branding');if(mf)d.middleLogo=await uploadPublicMedia(mf,'branding');}
+ const d={...(settings.brandSocial||finalGet('mbus_brand_social',{}))};
+ const hf=document.getElementById('mHeaderLogo')?.files[0],mf=document.getElementById('mMiddleLogo')?.files[0];
+ try{
+  if(mode!=='social'){
+   if(hf)d.headerLogo=await uploadPublicMedia(hf,'branding');
+   if(mf)d.middleLogo=await uploadPublicMedia(mf,'branding');
+  }
   if(mode!=='logo'){d.facebook=document.getElementById('mFacebook')?.value.trim()||'';d.instagram=document.getElementById('mInstagram')?.value.trim()||'';d.instagram2=document.getElementById('mInstagram2')?.value.trim()||'';d.whatsapp=document.getElementById('mWhatsApp')?.value.trim()||'';d.threads=document.getElementById('mThreads')?.value.trim()||'';d.x=document.getElementById('mX')?.value.trim()||'';}
-  finalStore('mbus_brand_social',d);
-  settings.brandSocial=d;
-  try{
-    const merged={...settings,brandSocial:d};
-    const {error}=await sb.from('site_settings').upsert({id:1,settings:merged});
-    if(error)toast('✓ Social links local में save हुए; Supabase policy check करें।');
-    else toast('✓ दोनों Instagram + बाकी Social links online save हो गए।');
-  }catch(e){toast('✓ Social links save हो गए।')}
+  finalStore('mbus_brand_social',d);settings.brandSocial=d;
+  const ok=await saveRemoteExtras('brandSocial',d);
   renderBrandSocial();
+  toast(ok?'✓ Logo/Social online save हो गए।':'⚠️ Logo/Social local save हुए; Supabase check करें।');
+ }catch(e){console.error(e);toast('❌ Logo save नहीं हुआ: '+(e?.message||''));}
 })()}
 function renderBrandSocial(){
   const d=finalGet('mbus_brand_social',settings.brandSocial||{}),
@@ -1240,6 +1252,19 @@ async function init(){
  swipe(document.querySelector('[data-gallery-slider="video"]'),d=>galleryMove('video',d));
  setInterval(()=>bannerMove('hero',1),4500);setInterval(()=>bannerMove('lower',1),4500);setInterval(()=>galleryMove('four',1),4000);
 }
+// Mobile file-picker resilience: selecting a file must never close the management panel.
+document.addEventListener('click',function(e){
+ const input=e.target?.closest?.('#managementPanel input[type=\"file\"]');
+ if(input){ e.stopPropagation(); }
+},true);
+document.addEventListener('change',function(e){
+ const input=e.target?.closest?.('#managementPanel input[type=\"file\"]');
+ if(input){
+   e.stopPropagation();
+   try{sessionStorage.setItem('mbus_last_manager_card',input.closest('.manager-card')?.id||'');}catch(_){}
+ }
+},true);
+
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 sb.auth.getSession().then(({data})=>{if(data?.session){closeAuthPanel();openManagement(data.session.user)}});
 sb.auth.onAuthStateChange((event,session)=>{if(event==='SIGNED_IN'&&session?.user){closeAuthPanel();openManagement(session.user)}});
