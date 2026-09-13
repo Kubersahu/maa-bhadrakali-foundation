@@ -774,12 +774,12 @@ async function saveRemoteExtras(key,value){
  try{
   const {data,error}=await sb.from('site_settings').select('settings').eq('id',1).maybeSingle();
   if(error)throw error;
-  const next={...(data?.settings||settings),[key]:value};
-  const {error:upErr}=await sb.from('site_settings').upsert({id:1,settings:next});
+  const next={...(data?.settings||{}),...(settings||{}),[key]:value};
+  const {error:upErr}=await sb.from('site_settings').upsert({id:1,settings:next},{onConflict:'id'});
   if(upErr)throw upErr;
   settings=next;
   return true;
- }catch(e){ return false; }
+ }catch(e){console.error('Remote save failed:',key,e);return false;}
 }
 async function syncLocalMediaToCloud(){
  try{
@@ -1191,20 +1191,17 @@ function renderDonation(){const d=finalGet('mbus_donation_final',{}),qr=document
 function saveLiveLinks(){const d={youtube:document.getElementById('mLiveYoutube')?.value.trim()||'',instagram:document.getElementById('mLiveInstagram')?.value.trim()||'',facebook:document.getElementById('mLiveFacebook')?.value.trim()||''};finalStore('mbus_live_final',d);renderLive();toast('✓ तीनों Live links save हो गए।')}
 function renderLive(){const d=finalGet('mbus_live_final',{}),items=[['liveYoutubeBtn',d.youtube],['liveInstagramBtn',d.instagram],['liveFacebookBtn',d.facebook]];items.forEach(([id,url])=>{const e=document.getElementById(id);if(e){e.style.display=url?'inline-block':'none';e.href=url||'#'}});const t=document.getElementById('liveText');if(t)t.textContent=(d.youtube||d.instagram||d.facebook)?'नीचे दिए platform button से Live Aarti देखें।':'YouTube, Instagram और Facebook Live links Owner Panel से जोड़े जा सकते हैं।'}
 function saveLogoSocial(mode="both"){return (async()=>{
-  const d=finalGet('mbus_brand_social',{});
+ try{
+  const d={...finalGet('mbus_brand_social',{})};
   const hf=document.getElementById('mHeaderLogo')?.files[0],mf=document.getElementById('mMiddleLogo')?.files[0];
   if(mode!=='social'){if(hf)d.headerLogo=await uploadPublicMedia(hf,'branding');if(mf)d.middleLogo=await uploadPublicMedia(mf,'branding');}
   if(mode!=='logo'){d.facebook=document.getElementById('mFacebook')?.value.trim()||'';d.instagram=document.getElementById('mInstagram')?.value.trim()||'';d.instagram2=document.getElementById('mInstagram2')?.value.trim()||'';d.whatsapp=document.getElementById('mWhatsApp')?.value.trim()||'';d.threads=document.getElementById('mThreads')?.value.trim()||'';d.x=document.getElementById('mX')?.value.trim()||'';}
   finalStore('mbus_brand_social',d);
-  settings.brandSocial=d;
-  try{
-    const merged={...settings,brandSocial:d};
-    const {error}=await sb.from('site_settings').upsert({id:1,settings:merged});
-    if(error)throw error;
-    settings=merged;
-    toast('✓ Logo + Social Media सभी phones के लिए online save हो गए।');
-  }catch(e){console.error(e);toast('❌ Logo/Social online save नहीं हुआ। Supabase check करें।')}
-  renderBrandSocial();
+  const ok=await saveRemoteExtras('brandSocial',d);
+  if(!ok)throw new Error('Logo/Social online save failed');
+  settings.brandSocial=d; renderBrandSocial();
+  toast('✓ Logo + Social Media सभी phones के लिए online save हो गए।');
+ }catch(e){console.error(e);toast('❌ Logo/Social save नहीं हुआ: '+(e?.message||'Supabase check करें।'));}
 })()}
 function renderBrandSocial(){
   const d=finalGet('mbus_brand_social',settings.brandSocial||{}),
@@ -1258,6 +1255,13 @@ function renderFinalWebsiteText(){const d=finalGet('mbus_text_final',{});const e
 function loadFinalForms(){const defs={editHeroBadge:'🔱 जय माँ भद्रकाली • झाँसी',editHeroTitle:'माँ भद्रकाली\nउत्सव समिति, झाँसी',editHeroDesc:defaults.heroDesc,editSeoDescription:settings.seoDescription||defaults.seoDescription,editAboutHeading:'माँ की भक्ति, उत्सव का संकल्प',editAboutDesc:defaults.aboutDesc,editGalleryHeading:'माँ के उत्सव की झलक',editGalleryText:'',editLiveHeading:'माँ की लाइव आरती',editContactHeading:'माँ के भक्तों से जुड़ाव',editContactText:'दर्शन, पूजा, उत्सव या समिति से संबंधित जानकारी के लिए संपर्क करें.'},d=finalGet('mbus_text_final',{});Object.keys(defs).forEach(id=>{const e=document.getElementById(id);if(e)e.value=d[id]??defs[id]});const b=finalGet('mbus_banners',{});document.getElementById('mLowerHeading')&&(document.getElementById('mLowerHeading').value=b.lowerHeading||'');document.getElementById('mLowerText')&&(document.getElementById('mLowerText').value=b.lowerText||'');renderFinalStoredBanners();if(settings.gallery)finalStore('mbus_gallery_final',settings.gallery);renderFinalGalleryMedia();renderFinalWebsiteText();}
 
 function sendMessage(e){e.preventDefault();toast('धन्यवाद! आपका संदेश प्राप्त हुआ।')}
+
+/* ===== MOBILE FILE PICKER STABILITY ===== */
+(function(){
+ const mark=()=>{try{sessionStorage.setItem('mbus_file_picker_return','1')}catch(e){}};
+ document.addEventListener('click',e=>{if(e.target?.closest?.('input[type="file"]'))mark()},true);
+ window.addEventListener('pageshow',()=>{try{if(sessionStorage.getItem('mbus_file_picker_return')==='1'){sessionStorage.removeItem('mbus_file_picker_return');const panel=document.getElementById('managementPanel');if(panel&&currentAuthUser){panel.classList.add('open');document.body.style.overflow='hidden';}}}catch(e){}});
+})();
 
 /* ===== INIT ===== */
 async function init(){
